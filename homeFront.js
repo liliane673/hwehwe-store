@@ -1,78 +1,85 @@
-
+import {allElectronicsData} from "./list-database.js";
+import {addToCart} from "./cart.js"
 
 /*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
-function renderType(){
-    let typeObject={};
-    for(let i=0; i<allElectronicsData.length; i++){
-        let eachData=allElectronicsData[i];
-        // console.log(eachData.type);
+// function renderType(){
+//     let typeObject={};
+//     for(let i=0; i<allElectronicsData.length; i++){
+//         let eachData=allElectronicsData[i];
+//         // console.log(eachData.type);
     
-        if(typeObject[eachData.type]===undefined){
-            typeObject[eachData.type]=0;
-        }
-        typeObject[eachData.type]++;
-    }
-    // console.log(typeObject)
+//         if(typeObject[eachData.type]===undefined){
+//             typeObject[eachData.type]=0;
+//         }
+//         typeObject[eachData.type]++;
+//     }
+//     // console.log(typeObject)
 
-    let renderType=document.getElementById("render-type");
-    renderType.innerHTML='';
+//     let renderType=document.getElementById("render-type");
+//     renderType.innerHTML='';
 
-    for(let type in typeObject){
-        renderType.innerHTML+=
-        `
-        <div class="produk-kategori">
-            ${type}
-        </div>
-        `
-    }
-}
-renderType();
+//     for(let type in typeObject){
+//         renderType.innerHTML+=
+//         `
+//         <div class="produk-kategori">
+//             ${type}
+//         </div>
+//         `
+//     }
+// }
+// renderType();
 
 /*function untuk munculin barang di masing2 card */
-function renderCard(){
-    let renderCard=document.getElementById("renderCard");
-    // console.log(renderCard);
+// function renderCard(){
+//     let renderCard=document.getElementById("renderCard");
+//     // console.log(renderCard);
 
-    renderCard.innerHTML='';
+//     renderCard.innerHTML='';
 
-    for(let i=0; i<allElectronicsData.length; i++){
-        renderCard.innerHTML+=
-        // `<img src="${allElectronicsData[i].image}"></img>`
-        `
-        <div class="card">
-            <div class="image-container">
-                <img src="${allElectronicsData[i].image}" class="image">
-            </div>
-            <div class="text-container">
-                <div class ="nama-perbarang">
-                    ${allElectronicsData[i].title}
-                </div>
-                <div class="harga-perbarang">
-                    <span class="rupiah">Rp</span>
-                    <span class="harga">${allElectronicsData[i].price}</span>
-                </div>
-                <div class="centered-div">
-                    <span class="brand-perbarang">
-                        ${allElectronicsData[i].brand}
-                    </span>
-                    <span class="tipe-perbarang">
-                        ${allElectronicsData[i].type}
-                    </span>
-                </div>
-            </div>
-            <button class="keranjang add-to-cart" onclick="addToCart(this)" data-product-id= "${allElectronicsData[i].id}">Tambah Keranjang</button>
-        </div>
-        `
-    }
-}
+//     for(let i=0; i<allElectronicsData.length; i++){
+//         renderCard.innerHTML+=
+//         // `<img src="${allElectronicsData[i].image}"></img>`
+//         `
+//         <div class="card">
+//             <div class="image-container">
+//                 <img src="${allElectronicsData[i].image}" class="image">
+//             </div>
+//             <div class="text-container">
+//                 <div class ="nama-perbarang">
+//                     ${allElectronicsData[i].title}
+//                 </div>
+//                 <div class="harga-perbarang">
+//                     <span class="rupiah">Rp</span>
+//                     <span class="harga">${allElectronicsData[i].price}</span>
+//                 </div>
+//                 <div class="centered-div">
+//                     <span class="brand-perbarang">
+//                         ${allElectronicsData[i].brand}
+//                     </span>
+//                     <span class="tipe-perbarang">
+//                         ${allElectronicsData[i].type}
+//                     </span>
+//                 </div>
+//             </div>
+//             <button class="keranjang add-to-cart" data-product-id= "${allElectronicsData[i].id}">Tambah Keranjang</button>
+            
+//         </div>
+//         `
+//     }
+// }
+// renderCard();
 
-renderCard();
+// document.getElementsByClassName('keranjang').addEventListener('click',addToCart);
 
-let cartArray=[];
-function addCartToArray(productId){
+
+
+// ==================================================
+
+
+export function addCartToArray(productId){
     let matching;
     cartArray.forEach(item => {
-        if(item.name===productId){
+        if(item.id===productId){
             matching=item;
         }
     });
@@ -81,14 +88,14 @@ function addCartToArray(productId){
        matching.quantity+=1;
     }else{
         cartArray.push({
-            name:productId,
+            id:productId,
             quantity:1,
         });
     };
     console.log(cartArray);
 }
 
-function updateCart(){
+export function updateCart(){
     let cartQuantity=0;
     cartArray.forEach(item => {
         cartQuantity+=item.quantity;
@@ -96,14 +103,6 @@ function updateCart(){
     console.log('cartQuantity',cartQuantity)
 }
 
-function addToCart(product){    
-    console.log('add to card');
-
-    let productId=product.getAttribute("data-product-id");
-
-    addCartToArray(productId);
-    updateCart();
-}
 
 
 
