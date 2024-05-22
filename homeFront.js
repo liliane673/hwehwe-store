@@ -1,4 +1,5 @@
 
+
 /*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
 function renderType(){
     let typeObject={};
