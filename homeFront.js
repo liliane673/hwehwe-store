@@ -12,9 +12,27 @@
 
 // console.log(allElectronicsData);
 
+function renderType(){
+    let typeObject={};
+    for(let i=0; i<allElectronicsData.length; i++){
+        let eachData=allElectronicsData[i];
+        // console.log(eachData.type);
+    
+        if(typeObject[eachData.type]===undefined){
+            typeObject[eachData.type]=0;
+        }
+        typeObject[eachData.type]++;
+    }
+    console.log(typeObject)
+
+    let renderType=document.getElementById("render-type");
+}
+renderType();
+
+
 function renderCard(){
     let renderCard=document.getElementById("renderCard");
-    console.log(renderCard);
+    // console.log(renderCard);
 
     renderCard.innerHTML='';
 
@@ -24,20 +42,23 @@ function renderCard(){
         `
         <div class="card">
             <div class="image-container">
-                <img src="${allElectronicsData[i].image}"></img>
+                <img src="${allElectronicsData[i].image}" class="image">
             </div>
             <div class="text-container">
                 <div class ="nama-perbarang">
                     ${allElectronicsData[i].title}
                 </div>
                 <div class="harga-perbarang">
-                    ${allElectronicsData[i].price}
+                    <span class="rupiah">Rp</span>
+                    <span class="harga">${allElectronicsData[i].price}</span>
                 </div>
-                <div class="brand-perbarang">
-                    ${allElectronicsData[i].brand}
-                </div>
-                <div class="tipe-perbarang">
-                    ${allElectronicsData[i].type}
+                <div class="centered-div">
+                    <span class="brand-perbarang">
+                        ${allElectronicsData[i].brand}
+                    </span>
+                    <span class="tipe-perbarang">
+                        ${allElectronicsData[i].type}
+                    </span>
                 </div>
             </div>
             <button class="keranjang">Tambah Keranjang</button>
