@@ -12,9 +12,27 @@
 
 // console.log(allElectronicsData);
 
+function renderType(){
+    let typeObject={};
+    for(let i=0; i<allElectronicsData.length; i++){
+        let eachData=allElectronicsData[i];
+        // console.log(eachData.type);
+    
+        if(typeObject[eachData.type]===undefined){
+            typeObject[eachData.type]=0;
+        }
+        typeObject[eachData.type]++;
+    }
+    console.log(typeObject)
+
+    let renderType=document.getElementById("render-type");
+}
+renderType();
+
+
 function renderCard(){
     let renderCard=document.getElementById("renderCard");
-    console.log(renderCard);
+    // console.log(renderCard);
 
     renderCard.innerHTML='';
 
