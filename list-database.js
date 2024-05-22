@@ -104,12 +104,20 @@ let allElectronicsData=[
         image:'https://i.gadgets360cdn.com/products/large/S95D-db-709x800-1713348154.jpg?downsize=*:180'
     },
     {
-        id:11,
+        id:14,
         title:'Apple iPhone 15 Pro',
         brand: 'Apple',
         type: 'Handphone',
         price:1_000_000,
         image:'https://i.gadgets360cdn.com/products/large/iphone-15-pro-600x800-1694549252.jpg?downsize=*:180,'
+    },
+    {
+        id:15,
+        title:'iPhone 13',
+        brand: 'Apple',
+        type: 'Handphone',
+        price:1_000_000,
+        image:'https://i.gadgets360cdn.com/products/large/iphone-13-1-396x800-1631648728.jpg?downsize=*:180'
     },
     {
         id:16,
