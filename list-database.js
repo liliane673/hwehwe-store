@@ -1,4 +1,4 @@
-let allElectronicsData=[
+ let allElectronicsData=[
     {
         id: 1,
         title: 'Lenovo ThinkPhone',
