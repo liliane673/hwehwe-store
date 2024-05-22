@@ -13,15 +13,31 @@
 </head>
 <body>
     <header class="options-container">
-        <div class="produk-kami-title vertical-center">HUEHUEHAHAHA</div>
-            <div class="search-bar-container">
-                <input type="text" id="fname" name="fname" class="search-bar vertical-center">
+        <span>
+            <div class="produk-kami-title vertical-center">
+                HUEHUEHAHAHA
             </div>
+        </span>
+        <span class="search-bar-container">
+                <input type="text" id="fname" name="fname" class="search-bar vertical-center">
+        </span>
+        
+        <div class="search-button">
+            <img src="icon-search.png">
+        </div>
+        <div class="back-button">
+            <img src="icon-home.png">
+        </div>
+        <div class="cart-button">
+            <img src="icon-shopping-cart.png">
+        </div>
+
     </header>
 
+    <!-- a -->
     <div>
         <div class="produk-header">
-            <div class="produk-header-wrapper">
+            <div class="produk-header-wrapper" id="render-type">
                 <div class="produk-kategori">
                     Handphone
                 </div>
@@ -36,36 +52,40 @@
                 </div>
             </div>
         </div>
-        <div class="outer-container">
-            <div class="inner-container">
+        <!-- <div class="outer-container"> -->
+            <div class="inner-container" id="renderCard">
 
 
                 <div class="card">
                     <div class="image-container">
-                        
+                        <img src="IconCart.png" class="image">
                     </div>
                     <div class="text-container">
                         <div class ="nama-perbarang">
                             Nama barang
                         </div>
                         <div class="harga-perbarang">
-                            Rp.10.000.000
+                            <span class="rupiah">Rp</span>
+                            <span class="harga">10.000.000</span>
                         </div>
-                        <div class="brand-perbarang">
-                            Xiaomi
-                        </div>
-                        <div class="tipe-perbarang">
-                            Handphone
+                        <div class="centered-div">
+                            <span class="brand-perbarang">
+                                Xiaomi
+                            </span>
+                            <span class="tipe-perbarang">
+                                Handphone
+                            </span>
                         </div>
                     </div>
                     <button class="keranjang">Tambah Keranjang</button>
                 </div>
 
             </div>
-        </div>
+        <!-- </div> -->
         
     </div>
 
+    <script type="text/javascript" src="list-database.js"></script>
     <script type="text/javascript" src="homeFront.js"></script>
 </body>
 </html>
