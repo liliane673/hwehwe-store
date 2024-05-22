@@ -70,7 +70,7 @@ body{
     margin-bottom: 10px;
 }
 
-.outer-container{
+/* .outer-container{
     display: flex;
     justify-self: center;
     margin:auto;
@@ -78,10 +78,10 @@ body{
     height: 680px;
     border-radius: 15px;
     background-color: white;
-}
+} */
 
 .inner-container{
-    display:flex;
+    display:grid;
     margin:auto;
     background-color: white;
     width: 92%;
@@ -98,8 +98,8 @@ body{
     justify-content: center;
     padding:20px 20px;
     background-color: whitesmoke;
-    width: 20%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
     border-radius: 10px;
 }
 
