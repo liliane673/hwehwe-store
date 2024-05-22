@@ -1,17 +1,5 @@
-// let kategori = document.getElementsByClassName("produk-kategori")
-// console.log(kategori.length)
-// for(let i = 0; i < kategori.length; i++){
-//     kategori[i].addEventListener("click", () =>{
-//         for(let j = 0; j < kategori.length; j++){
-//             kategori[j].style = ""
-//         }
-//         kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
-//     })
-// }
 
-
-// console.log(allElectronicsData);
-
+/*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
 function renderType(){
     let typeObject={};
     for(let i=0; i<allElectronicsData.length; i++){
@@ -23,13 +11,23 @@ function renderType(){
         }
         typeObject[eachData.type]++;
     }
-    console.log(typeObject)
+    // console.log(typeObject)
 
     let renderType=document.getElementById("render-type");
+    renderType.innerHTML='';
+
+    for(let type in typeObject){
+        renderType.innerHTML+=
+        `
+        <div class="produk-kategori">
+            ${type}
+        </div>
+        `
+    }
 }
 renderType();
 
-
+/*function untuk munculin barang di masing2 card */
 function renderCard(){
     let renderCard=document.getElementById("renderCard");
     // console.log(renderCard);
@@ -61,13 +59,51 @@ function renderCard(){
                     </span>
                 </div>
             </div>
-            <button class="keranjang">Tambah Keranjang</button>
+            <button class="keranjang add-to-cart" onclick="addToCart(this)" data-product-id= "${allElectronicsData[i].id}">Tambah Keranjang</button>
         </div>
         `
     }
-
 }
+
 renderCard();
+
+let cartArray=[];
+function addCartToArray(productId){
+    let matching;
+    cartArray.forEach(item => {
+        if(item.name===productId){
+            matching=item;
+        }
+    });
+
+    if(matching){
+       matching.quantity+=1;
+    }else{
+        cartArray.push({
+            name:productId,
+            quantity:1,
+        });
+    };
+    console.log(cartArray);
+}
+
+function updateCart(){
+    let cartQuantity=0;
+    cartArray.forEach(item => {
+        cartQuantity+=item.quantity;
+    })
+    console.log('cartQuantity',cartQuantity)
+}
+
+function addToCart(product){    
+    console.log('add to card');
+
+    let productId=product.getAttribute("data-product-id");
+
+    addCartToArray(productId);
+    updateCart();
+}
+
 
 
 
