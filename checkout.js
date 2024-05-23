@@ -1,10 +1,8 @@
-
-import {cartArray, removeFromCart } from "./cart.js";
-import {allElectronicsData} from "./list-database.js"
+import { cartArray, removeFromCart } from "./cart.js";
+import { allElectronicsData } from "./list-database.js";
 
 import { cartArray } from "./cart.js";
 import { allElectronicsData } from "./list-database.js";
-
 
 function renderTrolleyCard() {
   let cartSummary = "";
@@ -25,13 +23,8 @@ function renderTrolleyCard() {
     // console.log(totalPrice);
     // console.log(matchingProduct);
 
-
-        cartSummary+=
-        `
-        <tr class="table-cart item-container-${matchingProduct.id}">
-
     cartSummary += `
-    
+        <tr class="table-cart item-container-${matchingProduct.id}">
         <tr class="table-cart border-bottom">
 
             <td>
@@ -47,7 +40,9 @@ function renderTrolleyCard() {
                 )}</small>
                 <br />
                 <!-- <a href="" class="btn1" onclick="">Remove</a> -->
-                <button class="btn1 delete-cart" data-product-id=${matchingProduct.id}>Remove</button>
+                <button class="btn1 delete-cart" data-product-id=${
+                  matchingProduct.id
+                }>Remove</button>
                 </div>
             </div>
             </td>
@@ -82,32 +77,28 @@ function renderTrolleyCard() {
   document.querySelector(".table-cart").innerHTML = cartSummary;
   // console.log(cartSummary);
 
-
-    document.querySelector('.total-all-price').innerHTML=`Rp ${Intl.NumberFormat().format(totalPrice)}`;
-
-
-}
-renderTrolleyCard();
-
-    
-    
-document.querySelectorAll('.delete-cart').forEach(event => {
-    event.addEventListener('click',() => {
-        let productId= Number(event.dataset.productId);
-        console.log(productId);
-
-        removeFromCart(productId);
-        console.log('new cart', cartArray);
-
-        let containerItem= document.querySelector(`.item-container-${productId}`)
-        console.log('containerItem', containerItem);
-        containerItem.remove();
-    } )
-});
-
   document.querySelector(
     ".total-all-price"
   ).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
 }
 renderTrolleyCard();
 
+document.querySelectorAll(".delete-cart").forEach((event) => {
+  event.addEventListener("click", () => {
+    let productId = Number(event.dataset.productId);
+    console.log(productId);
+
+    removeFromCart(productId);
+    console.log("new cart", cartArray);
+
+    let containerItem = document.querySelector(`.item-container-${productId}`);
+    console.log("containerItem", containerItem);
+    containerItem.remove();
+  });
+});
+
+document.querySelector(
+  ".total-all-price"
+).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
+
+renderTrolleyCard();
