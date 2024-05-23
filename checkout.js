@@ -1,3 +1,4 @@
+
 import {allElectronicsData} from "./list-database.js"
 import {setStorage, getStorage} from "./localstorage.js"
 import {updateCheckoutPrice} from "./price.js"
@@ -22,7 +23,6 @@ export function renderTrolleyCard() {
             matchingProduct = allElectronicsData[i];
         }
       }
-          
       console.log(matchingProduct, "mprod");
       cartSummary.innerHTML+=
       `
@@ -76,7 +76,8 @@ export function renderTrolleyCard() {
           </tr>
       `
   }
-
+  
+  
   document.querySelectorAll('.delete-cart').forEach(event => {
     event.addEventListener('click',() => {
         let productId= Number(event.dataset.productId);

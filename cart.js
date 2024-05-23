@@ -1,3 +1,4 @@
+
 import {setStorage, getStorage} from "./localstorage.js"
 
 
@@ -34,10 +35,11 @@ export function updateCart(){
     document.querySelector('.cart-number').innerHTML=cartQuantity;
 
     console.log('cartQuantity',cartQuantity)
+
 }
 
-export function addToCart(productId){    
-    console.log('add to card');
+export function addToCart(productId) {
+  console.log("add to card");
 
     addCartToArray(productId);
     updateCart();
@@ -55,3 +57,4 @@ export function removeFromCart(productId){
     console.log(newCartArray, "<<<< new cart")
     setStorage(newCartArray);
 }
+
