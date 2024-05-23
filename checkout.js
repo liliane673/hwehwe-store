@@ -1,9 +1,6 @@
 import { cartArray, removeFromCart } from "./cart.js";
 import { allElectronicsData } from "./list-database.js";
 
-import { cartArray } from "./cart.js";
-import { allElectronicsData } from "./list-database.js";
-
 function renderTrolleyCard() {
   let cartSummary = "";
 
@@ -25,6 +22,7 @@ function renderTrolleyCard() {
 
     cartSummary += `
         <tr class="table-cart item-container-${matchingProduct.id}">
+    
         <tr class="table-cart border-bottom">
 
             <td>

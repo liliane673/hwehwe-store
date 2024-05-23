@@ -1,7 +1,53 @@
-import { allElectronicsData } from "./list-database.js";
-import { addToCart } from "./cart.js";
+//Ngasih liat kategori yang dipiilih
+let kategori = document.getElementsByClassName("produk-kategori");
+for (let i = 0; i < kategori.length; i++) {
+  kategori[i].addEventListener("click", () => {
+    for (let j = 0; j < kategori.length; j++) {
+      kategori[j].style = "";
+    }
+    kategori[i].style =
+      "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
+  });
+}
 
-/*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
+//Sticky Header
+window.onscroll = function () {
+  myFunction();
+};
+var header = document.getElementsByClassName("header")[0];
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+// let keranjangButton = document.getElementsByClassName(`keranjang-button`)
+// for(let i = 0; i < keranjangButton.length; i++){
+//     keranjangButton[i].addEventListener("mousedown",() =>{
+//         keranjangButton[i].style = "background-color: #ffc56e"
+//     })
+//     keranjangButton[i].addEventListener("mouseup",() =>{
+//         keranjangButton[i].style = "background-color: #f27c05"
+//     })
+//     keranjangButton[i].addEventListener('mouseleave', () => {
+//         if (!keranjangButton[i].matches(':hover')) {
+//             keranjangButton[i].style.backgroundColor = '#f27c05';
+//         }
+//     });
+// }
+
+//-------------------FRONTEND----------------------------
+//--------------------BACKEND----------------------------
+
+import { allElectronicsData } from "./list-database.js";
+
+console.log(`BackEnd masuk`);
+
+// console.log(allElectronicsData);
 
 function renderType() {
   let typeObject = {};
@@ -14,50 +60,19 @@ function renderType() {
     }
     typeObject[eachData.type]++;
   }
-  // console.log(typeObject)
+  console.log(typeObject);
 
   let renderType = document.getElementById("render-type");
-  renderType.innerHTML = "";
-
-  for (let type in typeObject) {
-    renderType.innerHTML += `
-        <div class="produk-kategori">
-            ${type}
-        </div>
-        `;
-  }
 }
 renderType();
 
-/*function untuk munculin barang di masing2 card */
-// function renderCard() {
-//   let renderCard = document.getElementById("renderCard");
-//   // console.log(renderCard);
-
-//   renderCard.innerHTML = "";
-
-//   //   function renderType() {
-//   //     let typeObject = {};
-//   //     for (let i = 0; i < allElectronicsData.length; i++) {
-//   //       let eachData = allElectronicsData[i];
-//   //       // console.log(eachData.type);
-
-//   //       if (typeObject[eachData.type] === undefined) {
-//   //         typeObject[eachData.type] = 0;
-//   //       }
-//   //       typeObject[eachData.type]++;
-//   //     }
-//   //     // console.log(typeObject)
-
-//   //     let renderType = document.getElementById("render-type");
-//   //   }
-//   renderType();
-// }
-// console.log(`renderType() masuk`);
+console.log(`renderType() masuk`);
 
 function renderCard() {
   let renderCard = document.getElementById("renderCard");
   // console.log(renderCard);
+
+  renderCard.innerHTML = "";
 
   for (let i = 0; i < allElectronicsData.length; i++) {
     renderCard.innerHTML +=
@@ -84,64 +99,14 @@ function renderCard() {
                     </span>
                 </div>
             </div>
+            <div class="keranjang-button">
 
-            <button class="keranjang button-cart" data-product-id=${allElectronicsData[i].id}>Tambah Keranjang</button>
+                Tambah Keranjang
+
+
+        </div>
         </div>
         `;
   }
 }
 renderCard();
-
-document.querySelectorAll(".button-cart").forEach((event) => {
-  event.addEventListener("click", () => {
-    let productId = Number(event.dataset.productId);
-    console.log(productId);
-
-    addToCart(productId);
-  });
-});
-
-let cartArray = [];
-export function addCartToArray(productId) {
-  let matching;
-  cartArray.forEach((item) => {
-    if (item.name === productId) {
-      matching = item;
-    }
-  });
-
-  if (matching) {
-    matching.quantity += 1;
-  } else {
-    cartArray.push({
-      name: productId,
-      quantity: 1,
-    });
-  }
-  console.log(cartArray);
-}
-
-export function updateCart() {
-  let cartQuantity = 0;
-  cartArray.forEach((item) => {
-    cartQuantity += item.quantity;
-  });
-
-  document.querySelector(".cart-number").innerHTML = cartQuantity;
-
-  console.log("cartQuantity", cartQuantity);
-}
-
-// function addToCart(product){
-//     console.log('add to card');
-
-//             <div class="keranjang-button">
-
-//                 Tambah Keranjang
-
-//         </div>
-//         </div>
-//         `;
-//   }
-// }
-// renderCard();
