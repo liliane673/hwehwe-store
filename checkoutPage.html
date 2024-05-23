@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="keranjangPage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <header class="options-container sticky-top">
+        <div class="produk-kami-title vertical-center">
+        </div>
+    </header>
+
+    <div class="container mb-6">
+        <div class="border">
+            <div class="small-container cart-page">
+                <div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        <tr>
+                            <td>qiuqiu</td>
+                            <td>qiuqiu@gmail.com</td>
+                            <td>081283895576</td>
+                            <td>Jl raya no 70 RT06/08 Depok</td>
+                            <td>Laptop</td>
+                            <td>1</td>
+                            <td>1000000</td>
+                        </tr>
+                    </thead>
+                    <tbody class="table-cart">
+                    </tbody>
+                </table>
+
+                <div class="total-price">
+                    <table>
+                        <tr>
+                            <td>Total Belanja</td>
+                            <td class="total-all-price">Rp 1000000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                    </div>
+                    <form>
+                        </div>
+                        <div class="mb-2 form-check"></div>
+                        <button type="submit" class="btn btn-outline-primary home" onclick = "myFunction()" >Payment</button>
+                        <button type="button" class="btn btn-outline-danger">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="module" src="checkout.js"></script>
+    <script>
+        function myFunction() {
+          alert("Terimakasih sudah berbelanja di HUEHUEHAHAHA");
+          let kembali = document.getElementsByClassName("home")[0]
+          kembali.href = "homepage.html"
+        }
+        </script>
+</body>
+</html>
