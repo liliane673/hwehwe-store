@@ -98,6 +98,9 @@ body{
   flex-wrap: wrap;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
 
 .card{
   display: block;
