@@ -1,8 +1,8 @@
+
 import { allElectronicsData } from "./list-database.js";
 
-//showCards Function
-function showCards(allElectronicsData) {
-  function renderType() {
+
+ export function renderType() {
     let typeObject = {};
     for (let i = 0; i < allElectronicsData.length; i++) {
       let eachData = allElectronicsData[i];
@@ -17,9 +17,8 @@ function showCards(allElectronicsData) {
 
     let renderType = document.getElementById("render-type");
   }
-  renderType();
 
-  function renderCard() {
+export function renderCard() {
     let renderCard = document.getElementById("renderCard");
     // console.log(renderCard);
 
@@ -60,9 +59,12 @@ function showCards(allElectronicsData) {
             `;
     }
   }
+
+//showCards Function
+function showCards(allElectronicsData) {
+  renderType();
   renderCard();
 }
-
 showCards(allElectronicsData);
 
 //Ngasih liat kategori yang dipiilih

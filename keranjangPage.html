@@ -60,7 +60,6 @@
                     <p>Lenovo</p>
                     <small>Price: 50.00</small>
                     <br />
-                    <!-- <a href="" class="btn1" onclick="">Remove</a> -->
                     <button class="btn1" onclick="">Remove</button>
                   </div>
                 </div>
@@ -88,7 +87,9 @@
                 </div>
               </td>
               <td>5.000</td>
-            </tr>
+            </tr> -->
+
+            
           </table>
 
           <div class="total-price">
@@ -99,64 +100,6 @@
               </tr>
             </table>
           </div>
-
-          <div class="form">
-            <div class="data-diri">
-              <h2>Data Diri</h2>
-            </div>
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  required="true"
-                  placeholder="Masukan nama anda"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Masukan email anda"
-                  required="true"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Phone Number</label
-                >
-                <input
-                  type="number"
-                  class="form-control"
-                  required="true"
-                  placeholder="Masukan No anda"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"
-                  >Address</label
-                >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Masukan alamat anda"
-                  required="true"
-                ></textarea>
-              </div>
-              <div class="mb-2 form-check"></div>
-              <button type="submit" class="btn btn-outline-primary">
-                Checkout
-              </button>
-              <button type="button" class="btn btn-outline-danger">
-                Cancel
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </div>
@@ -166,13 +109,31 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-
     <!-- <script type="module" src="homeFront.js"></script> -->
-    <script type="module" src="list-database.js"></script>
+    <!-- <script type="module" src="list-database.js"></script> -->
+    <script type="module">
+      import {renderTrolleyCard} from "./checkout.js"
+      import {removeFromCart} from "./cart.js"
+      import {updateCheckoutPrice} from "./price.js"
+      
+      renderTrolleyCard();
+      updateCheckoutPrice()
+      
+      document.querySelectorAll('.delete-cart').forEach(event => {
+          event.addEventListener('click',() => {
+              let productId= Number(event.dataset.productId);
+              console.log(productId, typeof productId);
 
-    <!-- <script type="module" src="homeFront.js"></script>
-    <script type="module" src="list-database.js"></script> -->
+              removeFromCart(productId);
+              renderTrolleyCard()
+              updateCheckoutPrice()
+          } )
+      });
 
-    <script type="module" src="checkout.js"></script>
+      // document.querySelector(
+      //   ".total-all-price"
+      // ).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
+    </script>
+    
   </body>
 </html>

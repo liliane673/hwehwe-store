@@ -1,76 +1,60 @@
-// import { updateCart, addCartToArray } from "./homeFront.js";
 
-export let cartArray = JSON.parse(localStorage.getItem("cart"));
+import {setStorage, getStorage} from "./localstorage.js"
 
-if (!cartArray || cartArray.length === 0) {
-  cartArray = [
-    {
-      id: 4,
-      quantity: 1,
-    },
-    {
-      id: 10,
-      quantity: 5,
-    },
-    {
-      id: 5,
-      quantity: 10,
-    },
-  ];
+
+export function addCartToArray(productId){
+    let cartArray = getStorage() || []
+    let isQuantityAdded = false
+
+    if (cartArray.length > 0) {
+        cartArray.map(cartItem => {
+            if(cartItem['name'] == productId){;
+                cartItem['quantity']+=1
+                isQuantityAdded = true
+            }
+            return cartArray
+        });
+    }
+
+    if (!isQuantityAdded) {
+        cartArray.push({
+            name:productId,
+            quantity:1,
+        });
+    }
+    setStorage(cartArray);
 }
 
-function saveToStorage() {
-  localStorage.setItem("cart", JSON.stringify(cartArray));
+export function updateCart(){
+    let cartArray = getStorage() || []
+    let cartQuantity=0;
+    cartArray.forEach(item => {
+        cartQuantity+=item.quantity;
+    })
+
+    document.querySelector('.cart-number').innerHTML=cartQuantity;
+
+    console.log('cartQuantity',cartQuantity)
+
 }
 
 export function addToCart(productId) {
   console.log("add to card");
 
-  // let productId=product.getAttribute("data-product-id");
-
-  addCartToArray(productId);
-  updateCart();
-
-  saveToStorage();
+    addCartToArray(productId);
+    updateCart();
 }
 
-export function removeFromCart(productId) {
-  // console.log('remove')
-  let newCartArray = [];
+export function removeFromCart(productId){
+    let cartArray = getStorage() || []
+    let newCartArray=[];
 
-  cartArray.forEach((eachCart) => {
-    if (Number(eachCart.id) !== Number(productId)) {
-      newCartArray.push(eachCart);
-    }
-  });
-  // console.log('newCartArray', newCartArray)
-
-  cartArray = newCartArray;
-
-  saveToStorage();
+    cartArray.forEach((eachCart) =>{
+        if(Number(eachCart.name)!==Number(productId)){
+            newCartArray.push(eachCart);
+        }
+    });
+    console.log(newCartArray, "<<<< new cart")
+    setStorage(newCartArray);
 }
 
-// export let cartArray = [
-//   {
-//     id: 4,
-//     quantity: 1,
-//   },
-//   {
-//     id: 10,
-//     quantity: 5,
-//   },
-//   {
-//     id: 5,
-//     quantity: 3,
-//   },
-// ];
-
-// export function addToCart() {
-//   console.log("add to card");
-
-//   let productId = product.getAttribute("data-product-id");
-
-//   addCartToArray(productId);
-//   updateCart();
-
-// }
