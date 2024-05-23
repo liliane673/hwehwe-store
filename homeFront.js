@@ -1,40 +1,40 @@
-let kategori = document.getElementsByClassName("produk-kategori")
-console.log(kategori.length)
-for(let i = 0; i < kategori.length; i++){
-    kategori[i].addEventListener("click", () =>{
-        for(let j = 0; j < kategori.length; j++){
-            kategori[j].style = ""
-        }
-        kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
-    })
-}
+import {allElectronicsData} from "./list-database.js";
+import {addToCart} from "./cart.js"
 
-
-// console.log(allElectronicsData);
-
-function renderType(){
-    let typeObject={};
-    for(let i=0; i<allElectronicsData.length; i++){
-        let eachData=allElectronicsData[i];
-        // console.log(eachData.type);
+/*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
+// function renderType(){
+//     let typeObject={};
+//     for(let i=0; i<allElectronicsData.length; i++){
+//         let eachData=allElectronicsData[i];
+//         // console.log(eachData.type);
     
-        if(typeObject[eachData.type]===undefined){
-            typeObject[eachData.type]=0;
-        }
-        typeObject[eachData.type]++;
-    }
-    console.log(typeObject)
+//         if(typeObject[eachData.type]===undefined){
+//             typeObject[eachData.type]=0;
+//         }
+//         typeObject[eachData.type]++;
+//     }
+//     // console.log(typeObject)
 
-    let renderType=document.getElementById("render-type");
-}
-renderType();
+//     let renderType=document.getElementById("render-type");
+//     renderType.innerHTML='';
 
+//     for(let type in typeObject){
+//         renderType.innerHTML+=
+//         `
+//         <div class="produk-kategori">
+//             ${type}
+//         </div>
+//         `
+//     }
+// }
+// renderType();
 
-function renderCard(){
-    let renderCard=document.getElementById("renderCard");
-    // console.log(renderCard);
+/*function untuk munculin barang di masing2 card */
+// function renderCard(){
+//     let renderCard=document.getElementById("renderCard");
+//     // console.log(renderCard);
 
-    renderCard.innerHTML='';
+//     renderCard.innerHTML='';
 
     for(let i=0; i<allElectronicsData.length; i++){
         renderCard.innerHTML+=
@@ -61,12 +61,7 @@ function renderCard(){
                     </span>
                 </div>
             </div>
-            <div class="keranjang-button">
-
-                Tambah Keranjang
-
-
-        </div>
+            <button class="keranjang">Tambah Keranjang</button>
         </div>
         `
     }
