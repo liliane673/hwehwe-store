@@ -26,8 +26,6 @@ function renderTrolleyCard() {
         cartSummary+=
         `
         <tr class="table-cart item-container-${matchingProduct.id}">
-
-    cartSummary += 
     
         <tr class="table-cart border-bottom">
 
