@@ -72,6 +72,7 @@ showCards(allElectronicsData);
 
 
 //Ngasih liat kategori yang dipiilih
+
 let filteredElectronicsData = []
 let iskategoriClicked = `false`
 
@@ -114,23 +115,23 @@ for(let i = 0; i < kategori.length; i++){
             showCards(filteredElectronicsData)
         }
     })  
+
 }
 
-
-
 //Sticky Header
-window.onscroll = function() {myFunction()};
-var header = document.getElementsByClassName("header")[0]
+window.onscroll = function () {
+  myFunction();
+};
+var header = document.getElementsByClassName("header")[0];
 var sticky = header.offsetTop;
 
 function myFunction() {
-    if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
   }
-
+}
 
 // let keranjangButton = document.getElementsByClassName(`keranjang-button`)
 // for(let i = 0; i < keranjangButton.length; i++){
@@ -148,6 +149,7 @@ function myFunction() {
 // }
 
 
+
 //SEARCH FUNCTION
 function getWordsFromSentence(title){
     let hasilWords = []
@@ -163,6 +165,8 @@ function getWordsFromSentence(title){
     }
     return hasilWords
 }
+
+
 
 
 function dekonstruksiData(allElectronicsData){
@@ -194,7 +198,9 @@ function hasilSearch(input){
         }
     }
     return hasilFilterSearch
+
 }
+
 
 
 let searchButton = document.getElementsByClassName("search-button")[0]
@@ -204,8 +210,6 @@ searchButton.addEventListener("click", ()=>{
     showCards(dataHasilSearch)
     
 })
-
-
 
 
 

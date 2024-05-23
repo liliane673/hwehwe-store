@@ -1,3 +1,4 @@
+
 body{
     background-color:whitesmoke;
 }
@@ -73,7 +74,7 @@ body{
     font-style: normal;
     margin-bottom: 10px;
     user-select: none;
-}
+
 
 /* .outer-container{
     display: flex;
@@ -85,160 +86,156 @@ body{
     background-color: white;
 } */
 
-.inner-container{
-    display:grid;
-    margin:auto;
-    background-color: white;
-    width: 92%;
-    height: 92%;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    flex-wrap: wrap;
+.inner-container {
+  display: grid;
+  margin: auto;
+  background-color: white;
+  width: 92%;
+  height: 92%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-
-.card{
-    display: block;
-    justify-content: center;
-    margin: auto;
-    padding:20px 20px;
-    background-color: whitesmoke;
-    width: 92%;
-    height: 420px;
-    border-radius: 10px;
+.card {
+  display: block;
+  justify-content: center;
+  margin: auto;
+  padding: 20px 20px;
+  background-color: whitesmoke;
+  width: 92%;
+  height: 420px;
+  border-radius: 10px;
 }
 
-.image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    height : 60%;
-    overflow: hidden;
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 60%;
+  overflow: hidden;
 }
 
-.image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 95%;
-    max-width: 95%;
-    mix-blend-mode: multiply;
-    transition: transform 0.3s ease;;
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 95%;
+  max-width: 95%;
+  mix-blend-mode: multiply;
+  transition: transform 0.3s ease;
 }
 
-.card:hover img{
-    transform: scale(1.1);
+.card:hover img {
+  transform: scale(1.1);
 }
 
-.nama-perbarang{
-    margin-top: 30px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 17px;
+.nama-perbarang {
+  margin-top: 30px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 17px;
 }
 
-.harga-perbarang{
-    margin: 30 auto;
-    text-align: center;
-    margin: 5px;
+.harga-perbarang {
+  margin: 30 auto;
+  text-align: center;
+  margin: 5px;
 }
-.rupiah{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 15px;
-    color: #f27c05;
-}
-
-
-.harga{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 17px;
-    color: #f27c05;
+.rupiah {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 15px;
+  color: #f27c05;
 }
 
-.brand-perbarang{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    color: gray;
+.harga {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 17px;
+  color: #f27c05;
 }
 
-.tipe-perbarang{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    color: gray;
+.brand-perbarang {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  color: gray;
 }
 
-.centered-div{
-    text-align: center;
+.tipe-perbarang {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  color: gray;
 }
 
-.search-button{
-    margin-right: 190px;
-    margin-left: 0;
+.centered-div {
+  text-align: center;
 }
 
-.cart-number{
-    margin: auto 10px auto 0;
-    font-size: 25px;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    text-align: center;
-    width:35px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: #f27c05;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.search-button {
+  margin-right: 190px;
+  margin-left: 0;
 }
 
-.cart-number:hover{
-    background-color: #fa9834;
+.cart-number {
+  margin: auto 10px auto 0;
+  font-size: 25px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #f27c05;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cart-button{
-    margin-right: 80px;
-    margin-left: 0;
+.cart-number:hover {
+  background-color: #fa9834;
 }
 
-
-.pics{
-    width: 40px;
-    height: 40px;
-    margin-right: 0;
-    mix-blend-mode: multiply;
-}
-.pics:hover{
-    background-color: whitesmoke;
+.cart-button {
+  margin-right: 80px;
+  margin-left: 0;
 }
 
-.keranjang-button{
-    align-items: center;
-    margin-top: 30px;
-    background-color: #f27c05;
-    text-align: center;
-    height: 40px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-size: 17px;
-    top: 50%;
-    transition: background-color 0.1s ease;
+.pics {
+  width: 40px;
+  height: 40px;
+  margin-right: 0;
+  mix-blend-mode: multiply;
+}
+.pics:hover {
+  background-color: whitesmoke;
 }
 
-.keranjang-button:hover{
-    background-color: #fa9834;
+.keranjang-button {
+  align-items: center;
+  margin-top: 30px;
+  background-color: #f27c05;
+  text-align: center;
+  height: 40px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  top: 50%;
+  transition: background-color 0.1s ease;
 }
 
+.keranjang-button:hover {
+  background-color: #fa9834;
+}
