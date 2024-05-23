@@ -1,40 +1,79 @@
-import {allElectronicsData} from "./list-database.js";
-import {addToCart} from "./cart.js"
+//Ngasih liat kategori yang dipiilih
+let kategori = document.getElementsByClassName("produk-kategori")
+for(let i = 0; i < kategori.length; i++){
+    kategori[i].addEventListener("click", () =>{
+        for(let j = 0; j < kategori.length; j++){
+            kategori[j].style = ""
+        }
+        kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
+    })
+}
 
-/*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
-// function renderType(){
-//     let typeObject={};
-//     for(let i=0; i<allElectronicsData.length; i++){
-//         let eachData=allElectronicsData[i];
-//         // console.log(eachData.type);
-    
-//         if(typeObject[eachData.type]===undefined){
-//             typeObject[eachData.type]=0;
+
+
+//Sticky Header
+window.onscroll = function() {myFunction()};
+var header = document.getElementsByClassName("header")[0]
+var sticky = header.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+
+
+// let keranjangButton = document.getElementsByClassName(`keranjang-button`)
+// for(let i = 0; i < keranjangButton.length; i++){
+//     keranjangButton[i].addEventListener("mousedown",() =>{
+//         keranjangButton[i].style = "background-color: #ffc56e"
+//     })
+//     keranjangButton[i].addEventListener("mouseup",() =>{
+//         keranjangButton[i].style = "background-color: #f27c05"
+//     })
+//     keranjangButton[i].addEventListener('mouseleave', () => {
+//         if (!keranjangButton[i].matches(':hover')) {
+//             keranjangButton[i].style.backgroundColor = '#f27c05';
 //         }
-//         typeObject[eachData.type]++;
-//     }
-//     // console.log(typeObject)
-
-//     let renderType=document.getElementById("render-type");
-//     renderType.innerHTML='';
-
-//     for(let type in typeObject){
-//         renderType.innerHTML+=
-//         `
-//         <div class="produk-kategori">
-//             ${type}
-//         </div>
-//         `
-//     }
+//     });
 // }
-// renderType();
 
-/*function untuk munculin barang di masing2 card */
-// function renderCard(){
-//     let renderCard=document.getElementById("renderCard");
-//     // console.log(renderCard);
 
-//     renderCard.innerHTML='';
+//-------------------FRONTEND----------------------------
+//--------------------BACKEND----------------------------
+
+import { allElectronicsData } from './list-database.js';
+
+console.log(`BackEnd masuk`)
+
+// console.log(allElectronicsData);
+
+function renderType(){
+    let typeObject={};
+    for(let i=0; i<allElectronicsData.length; i++){
+        let eachData=allElectronicsData[i];
+        // console.log(eachData.type);
+    
+        if(typeObject[eachData.type]===undefined){
+            typeObject[eachData.type]=0;
+        }
+        typeObject[eachData.type]++;
+    }
+    console.log(typeObject)
+
+    let renderType=document.getElementById("render-type");
+}
+renderType();
+
+console.log(`renderType() masuk`)
+
+function renderCard(){
+    let renderCard=document.getElementById("renderCard");
+    // console.log(renderCard);
+
+    renderCard.innerHTML='';
 
     for(let i=0; i<allElectronicsData.length; i++){
         renderCard.innerHTML+=
@@ -61,13 +100,15 @@ import {addToCart} from "./cart.js"
                     </span>
                 </div>
             </div>
-            <button class="keranjang">Tambah Keranjang</button>
+            <div class="keranjang-button">
+
+                Tambah Keranjang
+
+
+        </div>
         </div>
         `
     }
 
 }
 renderCard();
-
-
-
