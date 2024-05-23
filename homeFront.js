@@ -61,7 +61,12 @@ function renderCard(){
                     </span>
                 </div>
             </div>
-            <div class="keranjang">Tambah Keranjang</div>
+            <div class="keranjang-button">
+
+                Tambah Keranjang
+
+
+        </div>
         </div>
         `
     }
