@@ -20,8 +20,10 @@
     />
   </head>
   <body>
-    <header class="options-container">
-      <div class="produk-kami-title vertical-center">HUEHUEHAHAHA</div>
+    <header class="options-container sticky-top">
+      <div class="produk-kami-title vertical-center">
+        <a href="Homepage.html" class="judul-header"> HUEHUEHAHAHA</a>
+      </div>
       <div class="search-bar-container">
         <input
           type="text"
@@ -33,7 +35,7 @@
     </header>
 
     <!-- konten keranjang -->
-    <div class="container">
+    <div class="container mb-6">
       <div class="border">
         <div class="small-container cart-page">
           <div>
@@ -41,9 +43,9 @@
           </div>
           <table>
             <tr>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
+              <th>Product</th>
+              <th class="judul-table">Quantity</th>
+              <th>Subtotal</th>
             </tr>
           </table>
           <table class="table-cart">
@@ -69,7 +71,7 @@
                   <div>
                     <button
                       type="button"
-                      class="px-2 rounded-start text-white cursor-pointer text-lg button1"
+                      class="px-2 rounded-circle text-white cursor-pointer button1"
                       onclick=""
                     >
                       -
@@ -77,7 +79,7 @@
                     <span id="valueQty" class="px-1">0</span>
                     <button
                       type="button"
-                      class="px-1 rounded-end text-white cursor-pointer button1"
+                      class="px-1 rounded-circle text-white cursor-pointer button1"
                       onclick=""
                     >
                       +

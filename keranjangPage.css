@@ -11,7 +11,7 @@ body {
 
 .options-container {
   margin: auto;
-  position: sticky;
+  /* position: sticky; */
   background-color: white;
   width: 80%;
   height: 70px;
@@ -75,16 +75,16 @@ table {
   border-collapse: collapse;
 }
 
-/* .cart-info {
-  /* display: flex; */
-/* } */
+.cart-info {
+  display: flex;
+}
 
 th {
   text-align: left;
   padding: 5px;
   /* margin: auto; */
   color: #fff;
-  background: #ff523b;
+  background: #f27c05;
   font-weight: normal;
 }
 
@@ -94,7 +94,7 @@ td {
 
 td button {
   margin-top: 15px;
-  color: #ff523b;
+  color: #f27c05;
   font-size: 10px;
   /* text-decoration: none; */
 }
@@ -111,9 +111,9 @@ td img {
 }
 
 .total-price table {
-  border-top: 3px solid #ff523b;
+  border-top: 3px solid #f27c05;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin-top: 50px;
 }
 
@@ -127,7 +127,7 @@ th:last-child {
 
 .btn1 {
   display: inline-block;
-  background: #ff523b;
+  background: #f27c05;
   color: #fff;
   padding: 8px 10px;
   margin: 15px 0;
@@ -156,7 +156,7 @@ th:last-child {
 }
 
 .button1:hover {
-  background-color: red;
+  background-color: #f27c05;
 }
 
 .form {
@@ -169,4 +169,21 @@ th:last-child {
 
 .tr1 {
   display: flex;
+}
+
+.judul-table {
+  text-align: end;
+}
+
+.judul-header {
+  text-decoration: none;
+  color: #f27c05;
+}
+
+.judul-header:hover {
+  color: red;
+}
+
+.judul-subtotal {
+  margin-left: 10%;
 }
