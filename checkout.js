@@ -19,8 +19,8 @@ function renderTrolleyCard() {
       }
     }
     totalPrice += matchingProduct.price * cartArray[i].quantity;
-    console.log(totalPrice);
-    console.log(matchingProduct);
+    // console.log(totalPrice);
+    // console.log(matchingProduct);
 
 
         cartSummary+=
