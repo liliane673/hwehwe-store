@@ -3,6 +3,41 @@ import { allElectronicsData } from "./list-database.js";
 import { addToCart } from "./cart.js";
 
 /*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
+
+function renderType(){
+    let typeObject={};
+    for(let i=0; i<allElectronicsData.length; i++){
+        let eachData=allElectronicsData[i];
+        // console.log(eachData.type);
+    
+        if(typeObject[eachData.type]===undefined){
+            typeObject[eachData.type]=0;
+        }
+        typeObject[eachData.type]++;
+    }
+    // console.log(typeObject)
+
+    let renderType=document.getElementById("render-type");
+    renderType.innerHTML='';
+
+    for(let type in typeObject){
+        renderType.innerHTML+=
+        `
+        <div class="produk-kategori">
+            ${type}
+        </div>
+        `
+    }
+}
+// renderType();
+
+/*function untuk munculin barang di masing2 card */
+function renderCard(){
+    let renderCard=document.getElementById("renderCard");
+    // console.log(renderCard);
+
+    renderCard.innerHTML='';
+
 // function renderType(){
 //     let typeObject={};
 //     for(let i=0; i<allElectronicsData.length; i++){
@@ -11,6 +46,7 @@ import { addToCart } from "./cart.js";
 
 //         if(typeObject[eachData.type]===undefined){
 //             typeObject[eachData.type]=0;
+
 
 
 
@@ -91,6 +127,57 @@ for (let i = 0; i < allElectronicsData.length; i++) {
                     </span>
                 </div>
             </div>
+
+            <button class="keranjang button-cart" data-product-id=${allElectronicsData[i].id}>Tambah Keranjang</button>
+        </div>
+        `
+    }
+}
+renderCard();
+
+document.querySelectorAll('.button-cart').forEach(event => {
+    event.addEventListener('click',() => {
+        let productId= Number(event.dataset.productId);
+        console.log(productId);
+
+        addToCart(productId);
+    } )
+});
+
+let cartArray=[];
+export function addCartToArray(productId){
+    let matching;
+    cartArray.forEach(item => {
+        if(item.name===productId){
+            matching=item;
+        }
+    });
+
+    if(matching){
+       matching.quantity+=1;
+    }else{
+        cartArray.push({
+            name:productId,
+            quantity:1,
+        });
+    };
+    console.log(cartArray);
+}
+
+export function updateCart(){
+    let cartQuantity=0;
+    cartArray.forEach(item => {
+        cartQuantity+=item.quantity;
+    })
+
+    document.querySelector('.cart-number').innerHTML=cartQuantity;
+
+    console.log('cartQuantity',cartQuantity)
+}
+
+// function addToCart(product){    
+//     console.log('add to card');
+
             <div class="keranjang-button">
 
                 Tambah Keranjang
@@ -102,4 +189,12 @@ for (let i = 0; i < allElectronicsData.length; i++) {
 }
 
 
+//     let productId=product.getAttribute("data-product-id");
+
+
+//     addCartToArray(productId);
+//     updateCart();
+// }
+
 renderCard();
+
