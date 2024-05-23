@@ -39,11 +39,54 @@
           <div>
             <h3>List Cart</h3>
           </div>
+          <table>
+            <tr>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+            </tr>
+
+          </table>
           <table class="table-cart">
             <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
+              <td>
+                <div class="cart-info">
+                  <img
+                    src="https://i.gadgets360cdn.com/products/large/lenovo-thinkphone-db-709x800-1672984720.jpg?downsize=*:180"
+                    alt=""
+                  />
+                  <div>
+                    <p>Lenovo</p>
+                    <small>Price: 50.00</small>
+                    <br />
+                    <!-- <a href="" class="btn1" onclick="">Remove</a> -->
+                    <button class="btn1" onclick="">Remove</button>
+                  </div>
+                </div>
+              </td>
+
+              <td>
+                <div class="d-flex">
+                  <div>
+                    <button
+                      type="button"
+                      class="px-2 rounded-start text-white cursor-pointer text-lg button1"
+                      onclick=""
+                    >
+                      -
+                    </button>
+                    <span id="valueQty" class="px-1">0</span>
+                    <button
+                      type="button"
+                      class="px-1 rounded-end text-white cursor-pointer button1"
+                      onclick=""
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td>5.000</td>
             </tr>
           </table>
 
@@ -55,6 +98,64 @@
               </tr>
             </table>
           </div>
+
+          <div class="form">
+            <div class="data-diri">
+              <h2>Data Diri</h2>
+            </div>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required="true"
+                  placeholder="Masukan nama anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Masukan email anda"
+                  required="true"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  required="true"
+                  placeholder="Masukan No anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Address</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  placeholder="Masukan alamat anda"
+                  required="true"
+                ></textarea>
+              </div>
+              <div class="mb-2 form-check"></div>
+              <button type="submit" class="btn btn-outline-primary">
+                Checkout
+              </button>
+              <button type="button" class="btn btn-outline-danger">
+                Cancel
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -64,9 +165,15 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
     
     <!-- <script type="module" src="homeFront.js"></script> -->
     <script type="module" src="list-database.js"></script>
+
+
+    <!-- <script type="module" src="homeFront.js"></script>
+    <script type="module" src="list-database.js"></script> -->
+
     <script type="module" src="checkout.js"></script>
   </body>
 </html>

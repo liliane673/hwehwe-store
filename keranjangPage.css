@@ -67,7 +67,7 @@ body {
 }
 
 .cart-page {
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 table {
@@ -75,21 +75,21 @@ table {
   border-collapse: collapse;
 }
 
-.cart-info {
-  display: flex;
-  flex-wrap: wrap;
-}
+/* .cart-info {
+  /* display: flex; */
+/* } */
 
 th {
   text-align: left;
   padding: 5px;
+  /* margin: auto; */
   color: #fff;
   background: #ff523b;
   font-weight: normal;
 }
 
 td {
-  padding: 10px 5px;
+  padding: 12px 5px;
 }
 
 td button {
@@ -157,4 +157,16 @@ th:last-child {
 
 .button1:hover {
   background-color: red;
+}
+
+.form {
+  margin-top: 100px;
+}
+
+.data-diri {
+  margin-bottom: 20px;
+}
+
+.tr1 {
+  display: flex;
 }

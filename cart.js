@@ -1,4 +1,5 @@
-import {updateCart, addCartToArray} from './homeFront.js';
+import { updateCart, addCartToArray } from "./homeFront.js";
+
 
 export let cartArray = JSON.parse(localStorage.getItem('cart'));
 
@@ -48,6 +49,28 @@ export function removeFromCart(productId){
     cartArray=newCartArray;
 
     saveToStorage();
+=======
+export let cartArray = [
+  {
+    id: 4,
+    quantity: 1,
+  },
+  {
+    id: 10,
+    quantity: 5,
+  },
+  {
+    id: 5,
+    quantity: 3,
+  },
+];
+
+export function addToCart() {
+  console.log("add to card");
+
+  let productId = product.getAttribute("data-product-id");
+
+  addCartToArray(productId);
+  updateCart();
+
 }
-
-
