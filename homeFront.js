@@ -11,7 +11,7 @@ for(let i = 0; i < kategori.length; i++){
         for(let j = 0; j < kategori.length; j++){
             kategori[j].style = ""
         }
-        if(iskategoriClicked == `false`){
+        if(iskategoriClicked == `false` || iskategoriClicked != i){
             kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
             iskategoriClicked = i
             chosenKategori = i
