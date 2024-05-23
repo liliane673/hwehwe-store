@@ -1,56 +1,54 @@
 // import { updateCart, addCartToArray } from "./homeFront.js";
 
+export let cartArray = JSON.parse(localStorage.getItem("cart"));
 
-export let cartArray = JSON.parse(localStorage.getItem('cart'));
-
-if(!cartArray || cartArray.length===0){
-    cartArray=[
-        {
-            id:4,
-            quantity:1
-        },
-        {
-            id:10,
-            quantity:5
-        },
-        {
-            id:5,
-            quantity:10
-        }
-    ];
+if (!cartArray || cartArray.length === 0) {
+  cartArray = [
+    {
+      id: 4,
+      quantity: 1,
+    },
+    {
+      id: 10,
+      quantity: 5,
+    },
+    {
+      id: 5,
+      quantity: 10,
+    },
+  ];
 }
 
-function saveToStorage(){
-    localStorage.setItem('cart', JSON.stringify(cartArray));
+function saveToStorage() {
+  localStorage.setItem("cart", JSON.stringify(cartArray));
 }
 
-export function addToCart(productId){    
-    console.log('add to card');
+export function addToCart(productId) {
+  console.log("add to card");
 
-    // let productId=product.getAttribute("data-product-id");
+  // let productId=product.getAttribute("data-product-id");
 
-    addCartToArray(productId);
-    updateCart();
+  addCartToArray(productId);
+  updateCart();
 
-    saveToStorage();
+  saveToStorage();
 }
 
-export function removeFromCart(productId){
-    // console.log('remove')
-    let newCartArray=[];
+export function removeFromCart(productId) {
+  // console.log('remove')
+  let newCartArray = [];
 
-    cartArray.forEach((eachCart) =>{
-        if(Number(eachCart.id)!==Number(productId)){
-            newCartArray.push(eachCart);
-        }
-    });
-    // console.log('newCartArray', newCartArray)
+  cartArray.forEach((eachCart) => {
+    if (Number(eachCart.id) !== Number(productId)) {
+      newCartArray.push(eachCart);
+    }
+  });
+  // console.log('newCartArray', newCartArray)
 
-    cartArray=newCartArray;
+  cartArray = newCartArray;
 
-    saveToStorage();
-  }
-    
+  saveToStorage();
+}
 
 // export let cartArray = [
 //   {
@@ -66,7 +64,6 @@ export function removeFromCart(productId){
 //     quantity: 3,
 //   },
 // ];
-
 
 // export function addToCart() {
 //   console.log("add to card");

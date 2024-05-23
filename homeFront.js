@@ -1,29 +1,29 @@
 //Ngasih liat kategori yang dipiilih
-let kategori = document.getElementsByClassName("produk-kategori")
-for(let i = 0; i < kategori.length; i++){
-    kategori[i].addEventListener("click", () =>{
-        for(let j = 0; j < kategori.length; j++){
-            kategori[j].style = ""
-        }
-        kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
-    })
+let kategori = document.getElementsByClassName("produk-kategori");
+for (let i = 0; i < kategori.length; i++) {
+  kategori[i].addEventListener("click", () => {
+    for (let j = 0; j < kategori.length; j++) {
+      kategori[j].style = "";
+    }
+    kategori[i].style =
+      "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
+  });
 }
 
-
-
 //Sticky Header
-window.onscroll = function() {myFunction()};
-var header = document.getElementsByClassName("header")[0]
+window.onscroll = function () {
+  myFunction();
+};
+var header = document.getElementsByClassName("header")[0];
 var sticky = header.offsetTop;
 
 function myFunction() {
-    if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
   }
-
+}
 
 // let keranjangButton = document.getElementsByClassName(`keranjang-button`)
 // for(let i = 0; i < keranjangButton.length; i++){
@@ -40,45 +40,44 @@ function myFunction() {
 //     });
 // }
 
-
 //-------------------FRONTEND----------------------------
 //--------------------BACKEND----------------------------
 
-import { allElectronicsData } from './list-database.js';
+import { allElectronicsData } from "./list-database.js";
 
-console.log(`BackEnd masuk`)
+console.log(`BackEnd masuk`);
 
 // console.log(allElectronicsData);
 
-function renderType(){
-    let typeObject={};
-    for(let i=0; i<allElectronicsData.length; i++){
-        let eachData=allElectronicsData[i];
-        // console.log(eachData.type);
-    
-        if(typeObject[eachData.type]===undefined){
-            typeObject[eachData.type]=0;
-        }
-        typeObject[eachData.type]++;
-    }
-    console.log(typeObject)
+function renderType() {
+  let typeObject = {};
+  for (let i = 0; i < allElectronicsData.length; i++) {
+    let eachData = allElectronicsData[i];
+    // console.log(eachData.type);
 
-    let renderType=document.getElementById("render-type");
+    if (typeObject[eachData.type] === undefined) {
+      typeObject[eachData.type] = 0;
+    }
+    typeObject[eachData.type]++;
+  }
+  console.log(typeObject);
+
+  let renderType = document.getElementById("render-type");
 }
 renderType();
 
-console.log(`renderType() masuk`)
+console.log(`renderType() masuk`);
 
-function renderCard(){
-    let renderCard=document.getElementById("renderCard");
-    // console.log(renderCard);
+function renderCard() {
+  let renderCard = document.getElementById("renderCard");
+  // console.log(renderCard);
 
-    renderCard.innerHTML='';
+  renderCard.innerHTML = "";
 
-    for(let i=0; i<allElectronicsData.length; i++){
-        renderCard.innerHTML+=
-        // `<img src="${allElectronicsData[i].image}"></img>`
-        `
+  for (let i = 0; i < allElectronicsData.length; i++) {
+    renderCard.innerHTML +=
+      // `<img src="${allElectronicsData[i].image}"></img>`
+      `
         <div class="card">
             <div class="image-container">
                 <img src="${allElectronicsData[i].image}" class="image">
@@ -107,8 +106,7 @@ function renderCard(){
 
         </div>
         </div>
-        `
-    }
-
+        `;
+  }
 }
 renderCard();
