@@ -1,5 +1,77 @@
-//Ngasih liat kategori yang dipiilih
 import { allElectronicsData } from './list-database.js';
+
+
+//showCards Function
+function showCards(allElectronicsData){
+    function renderType(){
+        let typeObject={};
+        for(let i=0; i<allElectronicsData.length; i++){
+            let eachData=allElectronicsData[i];
+            // console.log(eachData.type);
+        
+            if(typeObject[eachData.type]===undefined){
+                typeObject[eachData.type]=0;
+            }
+            typeObject[eachData.type]++;
+        }
+        // console.log(typeObject)
+    
+        let renderType=document.getElementById("render-type");
+    }
+    renderType();
+    
+    
+    function renderCard(){
+        let renderCard=document.getElementById("renderCard");
+        // console.log(renderCard);
+    
+        renderCard.innerHTML='';
+    
+        for(let i=0; i<allElectronicsData.length; i++){
+            renderCard.innerHTML+=
+            // `<img src="${allElectronicsData[i].image}"></img>`
+            `
+            <div class="card">
+                <div class="image-container">
+                    <img src="${allElectronicsData[i].image}" class="image">
+                </div>
+                <div class="text-container">
+                    <div class ="nama-perbarang">
+                        ${allElectronicsData[i].title}
+                    </div>
+                    <div class="harga-perbarang">
+                        <span class="rupiah">Rp</span>
+                        <span class="harga">${allElectronicsData[i].price}</span>
+                    </div>
+                    <div class="centered-div">
+                        <span class="brand-perbarang">
+                            ${allElectronicsData[i].brand}
+                        </span>
+                        <span class="tipe-perbarang">
+                            ${allElectronicsData[i].type}
+                        </span>
+                    </div>
+                </div>
+                <div class="keranjang-button">
+    
+                    Tambah Keranjang
+    
+    
+            </div>
+            </div>
+            `
+        }
+    
+    }
+    renderCard();
+}
+
+showCards(allElectronicsData);
+
+
+
+
+//Ngasih liat kategori yang dipiilih
 let filteredElectronicsData = []
 let iskategoriClicked = `false`
 
@@ -24,8 +96,6 @@ for(let i = 0; i < kategori.length; i++){
         }
 
 
-
-
         //filtering
         let typeKategori = [`Handphone`, `Laptop`, `TV`, `SmartWatch`]
         console.log(typeKategori[chosenKategori])
@@ -38,136 +108,11 @@ for(let i = 0; i < kategori.length; i++){
         }
 
         if(typeKategori[chosenKategori] === undefined){
-
-            function renderType(){
-                let typeObject={};
-                for(let i=0; i<allElectronicsData.length; i++){
-                    let eachData=allElectronicsData[i];
-                    // console.log(eachData.type);
-                
-                    if(typeObject[eachData.type]===undefined){
-                        typeObject[eachData.type]=0;
-                    }
-                    typeObject[eachData.type]++;
-                }
-                // console.log(typeObject)
-            
-                let renderType=document.getElementById("render-type");
-            }
-            renderType();
-            
-            
-            function renderCard(){
-                let renderCard=document.getElementById("renderCard");
-                // console.log(renderCard);
-            
-                renderCard.innerHTML='';
-            
-                for(let i=0; i<allElectronicsData.length; i++){
-                    renderCard.innerHTML+=
-                    // `<img src="${allElectronicsData[i].image}"></img>`
-                    `
-                    <div class="card">
-                        <div class="image-container">
-                            <img src="${allElectronicsData[i].image}" class="image">
-                        </div>
-                        <div class="text-container">
-                            <div class ="nama-perbarang">
-                                ${allElectronicsData[i].title}
-                            </div>
-                            <div class="harga-perbarang">
-                                <span class="rupiah">Rp</span>
-                                <span class="harga">${allElectronicsData[i].price}</span>
-                            </div>
-                            <div class="centered-div">
-                                <span class="brand-perbarang">
-                                    ${allElectronicsData[i].brand}
-                                </span>
-                                <span class="tipe-perbarang">
-                                    ${allElectronicsData[i].type}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="keranjang-button">
-            
-                            Tambah Keranjang
-            
-            
-                    </div>
-                    </div>
-                    `
-                }
-            
-            }
-            renderCard();
-
-        }
-        
+            showCards(allElectronicsData);
+        }     
         else{
-            function renderType(){
-                let typeObject={};
-                for(let i=0; i<filteredElectronicsData.length; i++){
-                    let eachData=filteredElectronicsData[i];
-                    // console.log(eachData.type);
-                
-                    if(typeObject[eachData.type]===undefined){
-                        typeObject[eachData.type]=0;
-                    }
-                    typeObject[eachData.type]++;
-                }
-                // console.log(typeObject)
-            
-                let renderType=document.getElementById("render-type");
-            }
-            renderType();
-            
-            
-            function renderCard(){
-                let renderCard=document.getElementById("renderCard");
-                // console.log(renderCard);
-            
-                renderCard.innerHTML='';
-            
-                for(let i=0; i<filteredElectronicsData.length; i++){
-                    renderCard.innerHTML+=
-                    // `<img src="${filteredElectronicsData[i].image}"></img>`
-                    `
-                    <div class="card">
-                        <div class="image-container">
-                            <img src="${filteredElectronicsData[i].image}" class="image">
-                        </div>
-                        <div class="text-container">
-                            <div class ="nama-perbarang">
-                                ${filteredElectronicsData[i].title}
-                            </div>
-                            <div class="harga-perbarang">
-                                <span class="rupiah">Rp</span>
-                                <span class="harga">${filteredElectronicsData[i].price}</span>
-                            </div>
-                            <div class="centered-div">
-                                <span class="brand-perbarang">
-                                    ${filteredElectronicsData[i].brand}
-                                </span>
-                                <span class="tipe-perbarang">
-                                    ${filteredElectronicsData[i].type}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="keranjang-button">
-            
-                            Tambah Keranjang
-            
-            
-                    </div>
-                    </div>
-                    `
-                }
-            
-            }
-            renderCard();
-
+            showCards(filteredElectronicsData)
         }
-        
     })  
 }
 
@@ -203,71 +148,66 @@ function myFunction() {
 // }
 
 
-//-------------------FRONTEND----------------------------
-//--------------------BACKEND----------------------------
-
-
-
-// console.log(allElectronicsData);
-
-function renderType(){
-    let typeObject={};
-    for(let i=0; i<allElectronicsData.length; i++){
-        let eachData=allElectronicsData[i];
-        // console.log(eachData.type);
-    
-        if(typeObject[eachData.type]===undefined){
-            typeObject[eachData.type]=0;
+//SEARCH FUNCTION
+function getWordsFromSentence(title){
+    let hasilWords = []
+    let temp = ""
+    for(let i = 0; i <= title.length; i++){
+        if(title[i] == " " || title[i] === undefined){
+            hasilWords.push(temp)
+            temp = ""
         }
-        typeObject[eachData.type]++;
+        else(
+            temp += title[i]
+        )
     }
-    // console.log(typeObject)
-
-    let renderType=document.getElementById("render-type");
+    return hasilWords
 }
-renderType();
 
 
-function renderCard(){
-    let renderCard=document.getElementById("renderCard");
-    // console.log(renderCard);
-
-    renderCard.innerHTML='';
-
-    for(let i=0; i<allElectronicsData.length; i++){
-        renderCard.innerHTML+=
-        // `<img src="${allElectronicsData[i].image}"></img>`
-        `
-        <div class="card">
-            <div class="image-container">
-                <img src="${allElectronicsData[i].image}" class="image">
-            </div>
-            <div class="text-container">
-                <div class ="nama-perbarang">
-                    ${allElectronicsData[i].title}
-                </div>
-                <div class="harga-perbarang">
-                    <span class="rupiah">Rp</span>
-                    <span class="harga">${allElectronicsData[i].price}</span>
-                </div>
-                <div class="centered-div">
-                    <span class="brand-perbarang">
-                        ${allElectronicsData[i].brand}
-                    </span>
-                    <span class="tipe-perbarang">
-                        ${allElectronicsData[i].type}
-                    </span>
-                </div>
-            </div>
-            <div class="keranjang-button">
-
-                Tambah Keranjang
-
-
-        </div>
-        </div>
-        `
+function dekonstruksiData(allElectronicsData){
+    let hasil = {}
+    for(let i = 0; i < allElectronicsData.length; i++){
+        hasil[allElectronicsData[i].id] = []
+        hasil[allElectronicsData[i].id].push(allElectronicsData[i].brand)
+        hasil[allElectronicsData[i].id].push(allElectronicsData[i].type)
+        let hasilPemisahanTitle = getWordsFromSentence(allElectronicsData[i].title)
+        for (let j = 0; j < hasilPemisahanTitle.length; j++){
+            hasil[allElectronicsData[i].id].push(hasilPemisahanTitle[j])
+        }
     }
-
+    return hasil
 }
-renderCard();
+
+function hasilSearch(input){
+    let data = dekonstruksiData(allElectronicsData)
+    let hasilFilterSearch = []
+    for(let key in data){
+        for(let i = 0; i < data[key].length; i++){
+            if(input == data[key][i]){
+                for(let j = 0; j < allElectronicsData.length; j++){
+                    if(allElectronicsData[j].id == key){
+                        hasilFilterSearch.push(allElectronicsData[j])
+                    }
+                }
+            }
+        }
+    }
+    return hasilFilterSearch
+}
+
+
+let searchButton = document.getElementsByClassName("search-button")[0]
+searchButton.addEventListener("click", ()=>{
+    let input = document.getElementsByClassName("search-bar")[0].value
+    let dataHasilSearch = hasilSearch(input)
+    showCards(dataHasilSearch)
+    
+})
+
+
+
+
+
+
+
