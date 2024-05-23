@@ -32,10 +32,11 @@ body{
     display: flex;
     justify-content: center;
     border-radius:15px;
-    border-style: none;
+    border-style: light;
     height:70%;
     width: 50%;
     margin:auto;
+    margin-left: 70px;
     padding-left: 30px;
     color: #212121;
     font-family: "Roboto", sans-serif;
@@ -128,9 +129,9 @@ body{
 }
 
 .harga-perbarang{
-    
     margin: 30 auto;
     text-align: center;
+    margin: 5px;
 }
 .rupiah{
     font-family: "Roboto", sans-serif;
@@ -140,6 +141,7 @@ body{
     color: #f27c05;
 }
 
+
 .harga{
     font-family: "Roboto", sans-serif;
     font-weight: 900;
@@ -148,12 +150,52 @@ body{
     color: #f27c05;
 }
 
+.brand-perbarang{
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    color: gray;
+}
+
 .tipe-perbarang{
-    display: inline-block;
-    margin-right: 0;
-    padding-left: auto;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    color: gray;
 }
 
 .centered-div{
-    justify-content: center;
+    text-align: center;
+}
+
+.search-button{
+    margin-right: 190px;
+    margin-left: 0;
+}
+
+.back-button{
+    margin-right: 60px;
+    margin-left: 0;
+}
+
+.cart-button{
+    margin-right: 80px;
+    margin-left: 0;
+}
+
+.pics{
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+}
+
+.keranjang{
+    align-items: center;
+    margin-top: 30px;
+    background-color: #f27c05;
+    text-align: center;
+    height: 40px;
+    border-radius: 18px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 17px;
 }
