@@ -1,115 +1,162 @@
-
-import {cartArray, removeFromCart } from "./cart.js";
 import {allElectronicsData} from "./list-database.js"
+import {setStorage, getStorage} from "./localstorage.js"
+import {updateCheckoutPrice} from "./price.js"
+import {removeFromCart} from "./cart.js"
 
-import { cartArray } from "./cart.js";
-import { allElectronicsData } from "./list-database.js";
+export function renderTrolleyCard() {
+  let cartArray = getStorage()
+  console.log(cartArray, "\n\n\n");
 
-
-function renderTrolleyCard() {
-  let cartSummary = "";
-
-  let totalPrice = 0;
+  let cartSummary=document.querySelector(".table-cart");
+  // empty all container first before re-rendering cart list
+  cartSummary.innerHTML=""
 
   for (let i = 0; i < cartArray.length; i++) {
-    let eachData = cartArray[i];
-    let eachId = eachData.id;
+      let eachData = cartArray[i];
+      let eachId = eachData.name;
 
-    let matchingProduct;
-    for (let i = 0; i < allElectronicsData.length; i++) {
-      if (allElectronicsData[i].id === eachId) {
-        matchingProduct = allElectronicsData[i];
+      let matchingProduct;
+      // console.log(allElectronicsData);
+      for (let i = 0; i < allElectronicsData.length; i++) {
+        if (allElectronicsData[i].id === eachId) {
+            matchingProduct = allElectronicsData[i];
+        }
       }
-    }
-    totalPrice += matchingProduct.price * cartArray[i].quantity;
-    // console.log(totalPrice);
-    // console.log(matchingProduct);
-
-
-        cartSummary+=
-        `
-        <tr class="table-cart item-container-${matchingProduct.id}">
-
-    cartSummary += `
-    
-        <tr class="table-cart border-bottom">
-
+          
+      console.log(matchingProduct, "mprod");
+      cartSummary.innerHTML+=
+      `
+          <tr class="item-container-${matchingProduct.id}">
             <td>
-            <div class="cart-info">
+              <div class="cart-info">
                 <img
-                src="${matchingProduct.image}
-                alt=""
+                  src="${matchingProduct.image}"
+                  alt=""
                 />
                 <div>
-                <p>${matchingProduct.title}</p>
-                <small>Price: Rp ${Intl.NumberFormat().format(
-                  matchingProduct.price
-                )}</small>
-                <br />
-                <!-- <a href="" class="btn1" onclick="">Remove</a> -->
-                <button class="btn1 delete-cart" data-product-id=${matchingProduct.id}>Remove</button>
+                  <p>${matchingProduct.title}</p>
+                  <small>Price: Rp ${Intl.NumberFormat().format(
+                      matchingProduct.price
+                      )}</small>
+                  <br />
+                  <button class="btn1 delete-cart " data-product-id="${matchingProduct.id}">Remove</button>
+              </div>
                 </div>
-            </div>
+              </div>
             </td>
 
             <td>
-            <div class="d-flex">
+              <div class="d-flex">
                 <div>
-                <button
+                  <button
                     type="button"
-                    class="px-2 rounded-start text-white cursor-pointer text-lg hover"
-                    style="font-size: 18px; background-color: #1ec88a"
+                    data-product-id="${matchingProduct.id}"
+                    class="px-2 rounded-start text-white cursor-pointer text-lg button1 button-minus-quantity"
                     onclick=""
-                >
+                  >
                     -
-                </button>
-                <span id="valueQty" class="px-1">${cartArray[i].quantity}</span>
-                <button
+                  </button>
+                  <span id="valueQty-${matchingProduct.id}" class="px-1">${cartArray[i].quantity}</span>
+                  <button
                     type="button"
-                    class="px-1 rounded-end text-white cursor-pointer"
-                    style="font-size: 18px; background-color: #1ec88a"
+                    data-product-id="${matchingProduct.id}"
+                    class="px-1 rounded-end text-white cursor-pointer button1 button-plus-quantity"
                     onclick=""
-                >
+                  >
                     +
-                </button>
+                  </button>
                 </div>
-            </div>
+              </div>
             </td>
-            <td>Rp ${Intl.NumberFormat().format(
-              matchingProduct.price * cartArray[i].quantity
-            )}</td>
-        </tr>
-        `;
+            <td>Rp <span id="each-total-${matchingProduct.id}" data-each-price="${matchingProduct.price}">
+            ${Intl.NumberFormat().format(
+              matchingProduct.price * cartArray[i].quantity)}
+            </span>
+            </td>
+          </tr>
+      `
   }
-  document.querySelector(".table-cart").innerHTML = cartSummary;
-  // console.log(cartSummary);
 
-
-    document.querySelector('.total-all-price').innerHTML=`Rp ${Intl.NumberFormat().format(totalPrice)}`;
-
-
-}
-renderTrolleyCard();
-
-    
-    
-document.querySelectorAll('.delete-cart').forEach(event => {
+  document.querySelectorAll('.delete-cart').forEach(event => {
     event.addEventListener('click',() => {
         let productId= Number(event.dataset.productId);
-        console.log(productId);
+        console.log(productId, typeof productId);
 
         removeFromCart(productId);
-        console.log('new cart', cartArray);
-
-        let containerItem= document.querySelector(`.item-container-${productId}`)
-        console.log('containerItem', containerItem);
-        containerItem.remove();
+        renderTrolleyCard()
+        updateCheckoutPrice()
     } )
-});
+  });
+  
+  // minus button listener 
+  document.querySelectorAll('.button-minus-quantity').forEach(event => {
+    event.addEventListener('click',() => {
+        let productId= Number(event.dataset.productId);
+        updateQuantityStorage('minus', productId);
+    } )
+  });
 
-  document.querySelector(
-    ".total-all-price"
-  ).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
+
+  document.querySelectorAll('.button-plus-quantity').forEach(event => {
+    event.addEventListener('click',() => {
+        let productId= Number(event.dataset.productId);
+        updateQuantityStorage('plus', productId);
+    } )
+  });
+
 }
-renderTrolleyCard();
+        
+        
+function updateQuantityStorage(input, productId){
+  console.log("inside update q storage for product id", productId);
+  let cartArray = getStorage()
+  let eachDataQuantity
+      
+  for (let i = 0; i < cartArray.length; i++) {
+    let eachData = cartArray[i];
+    let eachId = eachData.name;
+    
+    if(eachId === productId){
+      console.log(eachId, productId, "comparison");
 
+      if(input==='minus'){
+        eachData.quantity--;
+        eachDataQuantity=eachData.quantity;
+        
+        updateButtonNum(productId, eachDataQuantity)
+        let eachPrice = document.querySelector(`#each-total-${eachData.name}`).dataset.eachPrice
+        updateTotalEach(eachData.name, eachData.quantity, eachPrice)
+        setStorage(cartArray)
+
+        if(eachDataQuantity===0){
+          removeFromCart(productId);
+          let containerItem= document.querySelector(`.item-container-${productId}`)
+          containerItem.remove()
+        }
+
+      } else{
+        eachData.quantity++;
+        eachDataQuantity=eachData.quantity;
+        
+        updateButtonNum(productId, eachDataQuantity)
+        let eachPrice = document.querySelector(`#each-total-${eachData.name}`).dataset.eachPrice
+        updateTotalEach(eachData.name, eachData.quantity, eachPrice)
+        setStorage(cartArray)
+      }
+      
+      console.log(cartArray, "after update quantity <<<<<<<<<");
+    }
+
+  }
+
+  updateCheckoutPrice()
+}
+
+
+function updateButtonNum(productId, val) {
+  document.querySelector(`#valueQty-${productId}`).innerHTML = val
+}
+
+function updateTotalEach(productId, quantity, price){
+  document.querySelector(`#each-total-${productId}`).innerText = Intl.NumberFormat().format(quantity * price)
+}

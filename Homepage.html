@@ -93,9 +93,25 @@
 
     <!-- <script type="module" src="cart.js"></script> -->
     <!-- <script type="module" src="list-database.js"></script> -->
+    <script type="module">
+        import {addToCart, addCartToArray, updateCart} from "./cart.js"
+        import {allElectronicsData} from "./list-database.js"
+        import {renderType, renderCard} from "./homeFront.js"
 
-    <script type="text/javascript" src="list-database.js"></script>
+        renderType();
+        renderCard();
+        updateCart();
 
-    <script type="module" src="homeFront.js"></script>
+        let cartArray=[];
+
+        document.querySelectorAll('.button-cart').forEach(event => {
+            event.addEventListener('click',() => {
+                let productId= Number(event.dataset.productId);
+                console.log(productId);
+
+                addToCart(productId);
+            } )
+        });
+    </script>
 </body>
 </html>
