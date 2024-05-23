@@ -1,243 +1,251 @@
+
 body{
-    background-color:whitesmoke;
+  background-color:whitesmoke;
 }
 
 
 .header{
-    display: flex;
-    margin: auto;
-    position: sticky;
-    background-color: white;
-    width:80%;
-    height: 70px;
-    top: 0;
-    box-shadow: 0 6px 16px 0 rgba(25, 25, 25, .06);
-    border-radius: 20px;
-    z-index: 4;
+  display: flex;
+  margin: auto;
+  position: sticky;
+  background-color: white;
+  width:80%;
+  height: 70px;
+  top: 0;
+  box-shadow: 0 6px 16px 0 rgba(25, 25, 25, .06);
+  border-radius: 20px;
+  z-index: 4;
 }
 
 .vertical-center{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .search-bar-container{
-    margin:auto;
-    width: 40%;
-    height: 100%;
+  margin:auto;
+  width: 40%;
+  height: 100%;
 }
 
 .search-bar{
-    display: flex;
-    justify-content: center;
-    border-radius:15px;
-    border-style: light;
-    height:70%;
-    width: 50%;
-    margin:auto;
-    margin-left: 70px;
-    padding-left: 30px;
-    color: #212121;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius:15px;
+  border-style: light;
+  height:70%;
+  width: 50%;
+  margin:auto;
+  margin-left: 70px;
+  padding-left: 30px;
+  color: #212121;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 20px;
 }
 
 
 .produk-kami-title{
-    margin-left:40px;
-    font-weight: 700;
-    text-align: center;
-    font-size: 30px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    color:#f27c05;
+  margin-left:40px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  color:#f27c05;
 }
 .produk-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .produk-kategori{
-    display: inline-block;
-    padding: 20px 40px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    margin-bottom: 10px;
+  display: inline-block;
+  padding: 20px 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 10px;
+  user-select: none;
 }
 
 /* .outer-container{
-    display: flex;
-    justify-self: center;
-    margin:auto;
-    width:80%;
-    height: 680px;
-    border-radius: 15px;
-    background-color: white;
+  display: flex;
+  justify-self: center;
+  margin:auto;
+  width:80%;
+  height: 680px;
+  border-radius: 15px;
+  background-color: white;
 } */
 
 .inner-container{
-    display:grid;
-    margin:auto;
-    background-color: white;
-    width: 92%;
-    height: 92%;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    flex-wrap: wrap;
+  display:grid;
+  margin:auto;
+  background-color: white;
+  width: 92%;
+  height: 92%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
 
 .card{
-    display: block;
-    justify-content: center;
-    margin: auto;
-    padding:20px 20px;
-    background-color: whitesmoke;
-    width: 92%;
-    height: 420px;
-    border-radius: 10px;
+  display: block;
+  justify-content: center;
+  margin: auto;
+  padding:20px 20px;
+  background-color: whitesmoke;
+  width: 92%;
+  height: 420px;
+  border-radius: 10px;
 }
 
 .image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    height : 60%;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height : 60%;
+  overflow: hidden;
 }
 
 .image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 95%;
-    max-width: 95%;
-    mix-blend-mode: multiply;
-    transition: transform 0.3s ease;;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 95%;
+  max-width: 95%;
+  mix-blend-mode: multiply;
+  transition: transform 0.3s ease;;
 }
 
 .card:hover img{
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .nama-perbarang{
-    margin-top: 30px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 17px;
+  margin-top: 30px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 17px;
 }
 
 .harga-perbarang{
-    margin: 30 auto;
-    text-align: center;
-    margin: 5px;
+  margin: 30 auto;
+  text-align: center;
+  margin: 5px;
 }
 .rupiah{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 15px;
-    color: #f27c05;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 15px;
+  color: #f27c05;
 }
 
 
 .harga{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: black;
-    font-size: 17px;
-    color: #f27c05;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: black;
+  font-size: 17px;
+  color: #f27c05;
 }
 
 .brand-perbarang{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    color: gray;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  color: gray;
 }
 
 .tipe-perbarang{
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    color: gray;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  color: gray;
 }
 
 .centered-div{
-    text-align: center;
+  text-align: center;
 }
 
 .search-button{
-    margin-right: 190px;
-    margin-left: 0;
+  margin-right: 190px;
+  margin-left: 0;
 }
 
 .cart-number{
-    margin: auto 10px auto 0;
-    font-size: 25px;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 800;
-    text-align: center;
-    width:35px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: #f27c05;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: auto 10px auto 0;
+  font-size: 25px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  width:35px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #f27c05;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-number:hover{
-    background-color: #fa9834;
+  background-color: #fa9834;
 }
 
 .cart-button{
-    margin-right: 80px;
-    margin-left: 0;
+  margin-right: 80px;
+  margin-left: 0;
 }
 
 
 .pics{
-    width: 40px;
-    height: 40px;
-    margin-right: 0;
-    mix-blend-mode: multiply;
+  width: 40px;
+  height: 40px;
+  margin-right: 0;
+  mix-blend-mode: multiply;
 }
 .pics:hover{
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .keranjang-button{
-    align-items: center;
-    margin-top: 30px;
-    background-color: #f27c05;
-    text-align: center;
-    height: 40px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-size: 17px;
-    top: 50%;
-    transition: background-color 0.1s ease;
+  align-items: center;
+  margin-top: 30px;
+  background-color: #f27c05;
+  text-align: center;
+  height: 40px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  top: 50%;
+  transition: background-color 0.1s ease;
 }
 
 .keranjang-button:hover{
-    background-color: #fa9834;
+  background-color: #fa9834;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
