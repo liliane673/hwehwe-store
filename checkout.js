@@ -57,8 +57,7 @@ function renderTrolleyCard() {
                 <div>
                 <button
                     type="button"
-                    class="px-2 rounded-start text-white cursor-pointer text-lg hover"
-                    style="font-size: 18px; background-color: #1ec88a"
+                    class="px-2 rounded-circle text-white cursor-pointer button1"
                     onclick=""
                 >
                     -
@@ -66,8 +65,7 @@ function renderTrolleyCard() {
                 <span id="valueQty" class="px-1">${cartArray[i].quantity}</span>
                 <button
                     type="button"
-                    class="px-1 rounded-end text-white cursor-pointer"
-                    style="font-size: 18px; background-color: #1ec88a"
+                    class="px-1 rounded-circle text-white cursor-pointer button1"
                     onclick=""
                 >
                     +
