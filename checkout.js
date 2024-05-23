@@ -2,9 +2,6 @@
 import {cartArray, removeFromCart } from "./cart.js";
 import {allElectronicsData} from "./list-database.js"
 
-import { cartArray } from "./cart.js";
-import { allElectronicsData } from "./list-database.js";
-
 
 function renderTrolleyCard() {
   let cartSummary = "";
@@ -22,15 +19,15 @@ function renderTrolleyCard() {
       }
     }
     totalPrice += matchingProduct.price * cartArray[i].quantity;
-    // console.log(totalPrice);
-    // console.log(matchingProduct);
+    console.log(totalPrice);
+    console.log(matchingProduct);
 
 
         cartSummary+=
         `
         <tr class="table-cart item-container-${matchingProduct.id}">
 
-    cartSummary += `
+    cartSummary += 
     
         <tr class="table-cart border-bottom">
 
@@ -108,6 +105,6 @@ document.querySelectorAll('.delete-cart').forEach(event => {
   document.querySelector(
     ".total-all-price"
   ).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
-}
+
 renderTrolleyCard();
 
