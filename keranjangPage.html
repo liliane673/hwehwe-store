@@ -39,12 +39,14 @@
           <div>
             <h3>List Cart</h3>
           </div>
-          <table class="table-cart">
+          <table>
             <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
             </tr>
+          </table>
+          <table class="table-cart">
             <tr>
               <td>
                 <div class="cart-info">
@@ -67,8 +69,7 @@
                   <div>
                     <button
                       type="button"
-                      class="px-2 rounded-start text-white cursor-pointer text-lg hover"
-                      style="font-size: 18px; background-color: #1ec88a"
+                      class="px-2 rounded-start text-white cursor-pointer text-lg button1"
                       onclick=""
                     >
                       -
@@ -76,8 +77,7 @@
                     <span id="valueQty" class="px-1">0</span>
                     <button
                       type="button"
-                      class="px-1 rounded-end text-white cursor-pointer"
-                      style="font-size: 18px; background-color: #1ec88a"
+                      class="px-1 rounded-end text-white cursor-pointer button1"
                       onclick=""
                     >
                       +
@@ -97,6 +97,64 @@
               </tr>
             </table>
           </div>
+
+          <div class="form">
+            <div class="data-diri">
+              <h2>Data Diri</h2>
+            </div>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  required="true"
+                  placeholder="Masukan nama anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Masukan email anda"
+                  required="true"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  required="true"
+                  placeholder="Masukan No anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Address</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  placeholder="Masukan alamat anda"
+                  required="true"
+                ></textarea>
+              </div>
+              <div class="mb-2 form-check"></div>
+              <button type="submit" class="btn btn-outline-primary">
+                Checkout
+              </button>
+              <button type="button" class="btn btn-outline-danger">
+                Cancel
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -107,8 +165,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- <script type="module" src="homeFront.js"></script> -->
-    <!-- <script type="module" src="list-database.js"></script> -->
+    <!-- <script type="module" src="homeFront.js"></script>
+    <script type="module" src="list-database.js"></script> -->
     <script type="module" src="checkout.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
-import {allElectronicsData} from "./list-database.js";
-import {addToCart} from "./cart.js"
+import { allElectronicsData } from "./list-database.js";
+import { addToCart } from "./cart.js";
 
 /*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
 // function renderType(){
@@ -7,7 +7,7 @@ import {addToCart} from "./cart.js"
 //     for(let i=0; i<allElectronicsData.length; i++){
 //         let eachData=allElectronicsData[i];
 //         // console.log(eachData.type);
-    
+
 //         if(typeObject[eachData.type]===undefined){
 //             typeObject[eachData.type]=0;
 //         }
@@ -36,10 +36,10 @@ import {addToCart} from "./cart.js"
 
 //     renderCard.innerHTML='';
 
-    for(let i=0; i<allElectronicsData.length; i++){
-        renderCard.innerHTML+=
-        // `<img src="${allElectronicsData[i].image}"></img>`
-        `
+for (let i = 0; i < allElectronicsData.length; i++) {
+  renderCard.innerHTML +=
+    // `<img src="${allElectronicsData[i].image}"></img>`
+    `
         <div class="card">
             <div class="image-container">
                 <img src="${allElectronicsData[i].image}" class="image">
@@ -63,11 +63,7 @@ import {addToCart} from "./cart.js"
             </div>
             <button class="keranjang">Tambah Keranjang</button>
         </div>
-        `
-    }
-
+        `;
 }
+
 renderCard();
-
-
-
