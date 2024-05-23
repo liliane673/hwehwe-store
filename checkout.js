@@ -32,7 +32,7 @@ function renderTrolleyCard(){
                 />
                 <div>
                 <p>${matchingProduct.title}</p>
-                <small>Price: ${matchingProduct.price}</small>
+                <small>Price: Rp ${Intl.NumberFormat().format(matchingProduct.price)}</small>
                 <br />
                 <!-- <a href="" class="btn1" onclick="">Remove</a> -->
                 <button class="btn1" onclick="">Remove</button>
@@ -63,7 +63,7 @@ function renderTrolleyCard(){
                 </div>
             </div>
             </td>
-            <td>${matchingProduct.price * cartArray[i].quantity}</td>
+            <td>Rp ${Intl.NumberFormat().format(matchingProduct.price * cartArray[i].quantity)}</td>
         </tr>
         `;
         
@@ -71,6 +71,6 @@ function renderTrolleyCard(){
     document.querySelector('.table-cart').innerHTML=cartSummary;
     // console.log(cartSummary);
 
-    document.querySelector('.total-all-price').innerHTML=totalPrice;
+    document.querySelector('.total-all-price').innerHTML=`Rp ${Intl.NumberFormat().format(totalPrice)}`;
 }
 renderTrolleyCard();
