@@ -1,5 +1,5 @@
-import { allElectronicsData } from "./list-database.js";
-import { addToCart } from "./cart.js";
+import {allElectronicsData} from "./list-database.js";
+import {addToCart} from "./cart.js"
 
 /*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
 // function renderType(){
@@ -7,7 +7,7 @@ import { addToCart } from "./cart.js";
 //     for(let i=0; i<allElectronicsData.length; i++){
 //         let eachData=allElectronicsData[i];
 //         // console.log(eachData.type);
-
+    
 //         if(typeObject[eachData.type]===undefined){
 //             typeObject[eachData.type]=0;
 //         }
@@ -15,26 +15,17 @@ import { addToCart } from "./cart.js";
 //     }
 //     // console.log(typeObject)
 
-//     let renderType=document.getElementById("render-type");
-//     renderType.innerHTML='';
+    let renderType=document.getElementById("render-type");
+}
+renderType();
 
-//     for(let type in typeObject){
-//         renderType.innerHTML+=
-//         `
-//         <div class="produk-kategori">
-//             ${type}
-//         </div>
-//         `
-//     }
-// }
-// renderType();
+console.log(`renderType() masuk`)
 
-/*function untuk munculin barang di masing2 card */
-// function renderCard(){
-//     let renderCard=document.getElementById("renderCard");
-//     // console.log(renderCard);
+function renderCard(){
+    let renderCard=document.getElementById("renderCard");
+    // console.log(renderCard);
 
-//     renderCard.innerHTML='';
+    renderCard.innerHTML='';
 
 for (let i = 0; i < allElectronicsData.length; i++) {
   renderCard.innerHTML +=
@@ -61,9 +52,17 @@ for (let i = 0; i < allElectronicsData.length; i++) {
                     </span>
                 </div>
             </div>
-            <button class="keranjang">Tambah Keranjang</button>
+            <div class="keranjang-button">
+
+                Tambah Keranjang
+
+
+        </div>
         </div>
         `;
 }
 
 renderCard();
+
+
+

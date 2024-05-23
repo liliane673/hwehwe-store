@@ -3,15 +3,17 @@ body{
 }
 
 
-.options-container{
+.header{
     display: flex;
     margin: auto;
     position: sticky;
     background-color: white;
     width:80%;
     height: 70px;
+    top: 0;
     box-shadow: 0 6px 16px 0 rgba(25, 25, 25, .06);
     border-radius: 20px;
+    z-index: 4;
 }
 
 .vertical-center{
@@ -107,17 +109,26 @@ body{
 }
 
 .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    height : 60%
+    height : 60%;
+    overflow: hidden;
 }
 
 .image{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
-    max-width: 100%;
+    max-height: 95%;
+    max-width: 95%;
     mix-blend-mode: multiply;
+    transition: transform 0.3s ease;;
+}
+
+.card:hover img{
+    transform: scale(1.1);
 }
 
 .nama-perbarang{
@@ -188,16 +199,24 @@ body{
     align-items: center;
 }
 
+.cart-number:hover{
+    background-color: #fa9834;
+}
+
 .cart-button{
     margin-right: 80px;
     margin-left: 0;
-    
 }
+
 
 .pics{
     width: 40px;
     height: 40px;
     margin-right: 0;
+    mix-blend-mode: multiply;
+}
+.pics:hover{
+    background-color: whitesmoke;
 }
 
 .keranjang-button{
@@ -215,5 +234,10 @@ body{
     font-weight: 900;
     font-size: 17px;
     top: 50%;
+    transition: background-color 0.1s ease;
+}
+
+.keranjang-button:hover{
+    background-color: #fa9834;
 }
 

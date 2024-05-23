@@ -1,4 +1,4 @@
-import { updateCart, addCartToArray } from "./homeFront.js";
+// import { updateCart, addCartToArray } from "./homeFront.js";
 
 export let cartArray = [
   {
