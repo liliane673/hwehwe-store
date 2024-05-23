@@ -1,6 +1,6 @@
 
 import {allElectronicsData} from "./list-database.js"
-import {setStorage, getStorage} from "./localstorage.js"
+import {setStorage, getStorage, setUserStorage, getUserStorage} from "./localstorage.js"
 import {updateCheckoutPrice} from "./price.js"
 import {removeFromCart} from "./cart.js"
 
@@ -11,6 +11,10 @@ export function renderTrolleyCard() {
   let cartSummary=document.querySelector(".table-cart");
   // empty all container first before re-rendering cart list
   cartSummary.innerHTML=""
+
+  if(cartArray.length===0){
+    cartSummary.innerHTML="<p style='text-align:center;'>Anda belum melakukan menambahkan apapun dalam keranjang!</p>"
+  } 
 
   for (let i = 0; i < cartArray.length; i++) {
       let eachData = cartArray[i];
@@ -161,3 +165,11 @@ function updateButtonNum(productId, val) {
 function updateTotalEach(productId, quantity, price){
   document.querySelector(`#each-total-${productId}`).innerText = Intl.NumberFormat().format(quantity * price)
 }
+
+
+export function saveDataUSer(userObj){
+  console.log('userObj', userObj);
+  setUserStorage(userObj);
+  window.location.href = 'checkoutPage.html'
+}
+

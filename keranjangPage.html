@@ -87,7 +87,7 @@
                 </div>
               </td>
               <td>5.000</td>
-            </tr> -->
+            </tr>
 
             
           </table>
@@ -100,6 +100,71 @@
               </tr>
             </table>
           </div>
+
+          <div class="form">
+            <div class="data-diri">
+              <h2>Data Diri</h2>
+            </div>
+            <form id='form-data-diri'>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input
+                  type="text"
+                  class="form-control" id="form-control-name"
+                  required="true"
+                  placeholder="Masukan nama anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control" id="form-control-email"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Masukan email anda"
+                  required="true"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control" id="form-control-phone"
+                  required="true"
+                  placeholder="Masukan No Handphone anda"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Address</label
+                >
+                <textarea
+                  class="form-control" id="form-control-address"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  placeholder="Masukan alamat anda"
+                  required="true"
+                ></textarea>
+              </div>
+              <div class="mb-2 form-check"></div>
+
+              <button  type="submit" id='button-submit' class="btn btn-outline-primary">
+                Checkout
+              </button>
+
+
+              <a href="Homepage.html">
+                <button type="button" class="btn btn-outline-danger">
+                Cancel
+              </button>
+              </a>
+
+            </form>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -112,12 +177,13 @@
     <!-- <script type="module" src="homeFront.js"></script> -->
     <!-- <script type="module" src="list-database.js"></script> -->
     <script type="module">
-      import {renderTrolleyCard} from "./checkout.js"
+      import {renderTrolleyCard, saveDataUSer} from "./checkout.js"
       import {removeFromCart} from "./cart.js"
       import {updateCheckoutPrice} from "./price.js"
       
       renderTrolleyCard();
-      updateCheckoutPrice()
+      updateCheckoutPrice();
+
       
       document.querySelectorAll('.delete-cart').forEach(event => {
           event.addEventListener('click',() => {
@@ -130,9 +196,34 @@
           } )
       });
 
-      // document.querySelector(
-      //   ".total-all-price"
-      // ).innerHTML = `Rp ${Intl.NumberFormat().format(totalPrice)}`;
+     
+      document.querySelector('#form-data-diri').addEventListener('submit',(e) => {
+        console.log('submit');
+        e.preventDefault();
+        console.log(e);
+
+        let nameInput=document.querySelector("#form-control-name").value;
+        console.log(nameInput, 'nameInput');
+
+        let emailInput=document.querySelector("#form-control-email").value;
+        console.log(emailInput, 'emailInput');
+
+        let phoneInput=document.querySelector("#form-control-phone").value;
+        console.log(phoneInput, 'phoneInput');
+
+        let addressInput=document.querySelector("#form-control-address").value;
+        console.log(addressInput, 'addressInput');
+
+        let userObj={
+          nameInput,
+          emailInput,
+          phoneInput,
+          addressInput
+        };
+
+        saveDataUSer(userObj);
+      } );
+
     </script>
     
   </body>
