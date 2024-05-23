@@ -20,22 +20,35 @@
         <div class="border">
             <div class="small-container cart-page">
                 <div>
+                    <p id='user-name'>
+                        Qiuqiu
+                    </p>
+                    <p id='user-email'>
+                        qiuqiu@gmail.com
+                    </p>
+                    <p id='user-phone'>
+                        08126578945678234
+                    </p>
+                    <p id='user-address'>
+                        Jl raya kebun ragunan no 75 Jakarta Selatan 
+                    </p>
+                    
+                    <br>
                 </div>
                 <table>
                     <thead>
                         <tr>
                             <th>Product</th>
                             <th>Quantity</th>
+                            <th>Price</th>
                             <th>Subtotal</th>
                         </tr>
-                        <tr>
+                        <tr class="table-cart-product">
                             <td>Laptop</td>
                             <td>1</td>
                             <td>1000000</td>
                         </tr>
                     </thead>
-                    <tbody class="table-cart">
-                    </tbody>
                 </table>
 
                 <div class="total-price">
@@ -52,7 +65,12 @@
                         </div>
                         <div class="mb-2 form-check"></div>
                         <button type="submit" class="btn btn-outline-primary home" onclick = "myFunction()" >Payment</button>
-                        <button type="button" class="btn btn-outline-danger">Cancel</button>
+
+                        <a href="keranjangPage.html">
+
+                        <button type="button" class="btn btn-outline-danger">Cancel
+                        </button>
+                        </a>
                     </form>
                 </div>
             </div>
@@ -68,5 +86,51 @@
           kembali.href = "homepage.html"
         }
         </script>
+
+<script type="module">
+    import {getUserStorage, getStorage} from "./localstorage.js"
+    import {allElectronicsData} from "./list-database.js"
+    import {updateCheckoutPrice} from "./price.js"
+
+    let userData=getUserStorage();
+    console.log(userData);
+
+    document.querySelector('#user-name').innerText=userData.nameInput;
+    document.querySelector('#user-email').innerText=userData.emailInput;
+    document.querySelector('#user-phone').innerText=userData.phoneInput;
+    document.querySelector('#user-address').innerText=userData.addressInput;
+
+    let cartArray = getStorage()
+    console.log(cartArray, "\n\n\n");
+
+    let cartSummary=document.querySelector(".table-cart-product");
+    cartSummary.innerHTML=""
+
+    for (let i = 0; i < cartArray.length; i++) {
+        let eachData = cartArray[i];
+        let eachId = eachData.name;
+
+        let matchingProduct;
+        // console.log(allElectronicsData);
+        for (let i = 0; i < allElectronicsData.length; i++) {
+            if (allElectronicsData[i].id === eachId) {
+                matchingProduct = allElectronicsData[i];
+            }
+        }
+        cartSummary.innerHTML=
+        `
+        <tr class="table-cart-product">
+            <td>${matchingProduct.title}</td>
+            <td>${Intl.NumberFormat().format(eachData.quantity)}</td>
+            <td>Rp ${Intl.NumberFormat().format(matchingProduct.price)}</td>
+            <td>Rp ${Intl.NumberFormat().format(matchingProduct.price*eachData.quantity)}</td>
+        </tr>
+        `
+    }
+
+    updateCheckoutPrice();
+
+</script>
+
 </body>
 </html>
