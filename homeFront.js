@@ -1,13 +1,17 @@
-//Ngasih liat kategori yang dipiilih
-let kategori = document.getElementsByClassName("produk-kategori")
-for(let i = 0; i < kategori.length; i++){
-    kategori[i].addEventListener("click", () =>{
-        for(let j = 0; j < kategori.length; j++){
-            kategori[j].style = ""
-        }
-        kategori[i].style = "color: #f27c05; font-weight:500; border-bottom: 4px solid #f27c05;";
-    })
-}
+
+import { allElectronicsData } from "./list-database.js";
+import { addToCart } from "./cart.js";
+
+/*function untuk munculin tipe-tipe barang di header ==> dipakai untuk filter tipe barang */
+// function renderType(){
+//     let typeObject={};
+//     for(let i=0; i<allElectronicsData.length; i++){
+//         let eachData=allElectronicsData[i];
+//         // console.log(eachData.type);
+
+//         if(typeObject[eachData.type]===undefined){
+//             typeObject[eachData.type]=0;
+
 
 
 
@@ -25,20 +29,7 @@ function myFunction() {
   }
 
 
-// let keranjangButton = document.getElementsByClassName(`keranjang-button`)
-// for(let i = 0; i < keranjangButton.length; i++){
-//     keranjangButton[i].addEventListener("mousedown",() =>{
-//         keranjangButton[i].style = "background-color: #ffc56e"
-//     })
-//     keranjangButton[i].addEventListener("mouseup",() =>{
-//         keranjangButton[i].style = "background-color: #f27c05"
-//     })
-//     keranjangButton[i].addEventListener('mouseleave', () => {
-//         if (!keranjangButton[i].matches(':hover')) {
-//             keranjangButton[i].style.backgroundColor = '#f27c05';
-//         }
-//     });
-// }
+
 
 
 //-------------------FRONTEND----------------------------
@@ -75,10 +66,10 @@ function renderCard(){
 
     renderCard.innerHTML='';
 
-    for(let i=0; i<allElectronicsData.length; i++){
-        renderCard.innerHTML+=
-        // `<img src="${allElectronicsData[i].image}"></img>`
-        `
+for (let i = 0; i < allElectronicsData.length; i++) {
+  renderCard.innerHTML +=
+    // `<img src="${allElectronicsData[i].image}"></img>`
+    `
         <div class="card">
             <div class="image-container">
                 <img src="${allElectronicsData[i].image}" class="image">
@@ -107,8 +98,8 @@ function renderCard(){
 
         </div>
         </div>
-        `
-    }
-
+        `;
 }
+
+
 renderCard();
