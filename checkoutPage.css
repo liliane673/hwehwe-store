@@ -1,0 +1,79 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.produk-kami-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 80%;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.table-cart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table-cart th, .table-cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.cart-info {
+    display: flex;
+    align-items: center;
+}
+
+.cart-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.btn1 {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.total-price {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button1 {
+    font-size: 18px;
+    background-color: #1ec88a;
+}
