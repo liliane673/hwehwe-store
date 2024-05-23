@@ -44,7 +44,7 @@ export function renderCard(allElectronicsData) {
                     </div>
                     <div class="harga-perbarang">
                         <span class="rupiah">Rp</span>
-                        <span class="harga">${allElectronicsData[i].price}</span>
+                        <span class="harga">${Intl.NumberFormat().format(allElectronicsData[i].price)}</span>
                     </div>
                     <div class="centered-div">
                         <span class="brand-perbarang">
