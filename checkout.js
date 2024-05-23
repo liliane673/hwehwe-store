@@ -1,4 +1,4 @@
-import {cartArray } from "./cart.js";
+import {cartArray, removeFromCart } from "./cart.js";
 import {allElectronicsData} from "./list-database.js"
 
 
@@ -23,7 +23,7 @@ function renderTrolleyCard(){
 
         cartSummary+=
         `
-        <tr class="table-cart">
+        <tr class="table-cart item-container-${matchingProduct.id}">
             <td>
             <div class="cart-info">
                 <img
@@ -35,7 +35,7 @@ function renderTrolleyCard(){
                 <small>Price: Rp ${Intl.NumberFormat().format(matchingProduct.price)}</small>
                 <br />
                 <!-- <a href="" class="btn1" onclick="">Remove</a> -->
-                <button class="btn1" onclick="">Remove</button>
+                <button class="btn1 delete-cart" data-product-id=${matchingProduct.id}>Remove</button>
                 </div>
             </div>
             </td>
@@ -72,5 +72,23 @@ function renderTrolleyCard(){
     // console.log(cartSummary);
 
     document.querySelector('.total-all-price').innerHTML=`Rp ${Intl.NumberFormat().format(totalPrice)}`;
+
+
 }
 renderTrolleyCard();
+
+    
+    
+document.querySelectorAll('.delete-cart').forEach(event => {
+    event.addEventListener('click',() => {
+        let productId= Number(event.dataset.productId);
+        console.log(productId);
+
+        removeFromCart(productId);
+        console.log('new cart', cartArray);
+
+        let containerItem= document.querySelector(`.item-container-${productId}`)
+        console.log('containerItem', containerItem);
+        containerItem.remove();
+    } )
+});
