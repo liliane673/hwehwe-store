@@ -187,3 +187,7 @@ th:last-child {
 .judul-subtotal {
   margin-left: 10%;
 }
+
+.data-kosong {
+  margin-bottom: 25px;
+}

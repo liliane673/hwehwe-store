@@ -245,3 +245,7 @@ body{
 .keranjang-button:hover{
   background-color: #fa9834;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

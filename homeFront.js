@@ -187,3 +187,4 @@ searchButton.addEventListener("click", () => {
   let dataHasilSearch = hasilSearch(input);
   showCards(dataHasilSearch);
 });
+
