@@ -43,11 +43,13 @@
                             <th>Price</th>
                             <th>Subtotal</th>
                         </tr>
-                        <tr class="table-cart-product">
-                            <td>Laptop</td>
-                            <td>1</td>
-                            <td>1000000</td>
-                        </tr>
+                        <table class="table-cart-product">
+                            <tr>
+                                <td>Laptop</td>
+                                <td>1</td>
+                                <td>1000000</td>
+                            </tr>
+                        </table>
                     </thead>
                 </table>
 
@@ -101,9 +103,11 @@
     document.querySelector('#user-address').innerText=userData.addressInput;
 
     let cartArray = getStorage()
+
     console.log(cartArray, "\n\n\n");
 
     let cartSummary=document.querySelector(".table-cart-product");
+    console.log(cartSummary);
     cartSummary.innerHTML=""
 
     for (let i = 0; i < cartArray.length; i++) {
@@ -113,18 +117,18 @@
         let matchingProduct;
         // console.log(allElectronicsData);
         for (let i = 0; i < allElectronicsData.length; i++) {
+            // console.log(allElectronicsData[i]);
             if (allElectronicsData[i].id === eachId) {
                 matchingProduct = allElectronicsData[i];
+                console.log(matchingProduct);
             }
         }
-        cartSummary.innerHTML=
+        cartSummary.innerHTML+=
         `
-        <tr class="table-cart-product">
-            <td>${matchingProduct.title}</td>
-            <td>${Intl.NumberFormat().format(eachData.quantity)}</td>
-            <td>Rp ${Intl.NumberFormat().format(matchingProduct.price)}</td>
-            <td>Rp ${Intl.NumberFormat().format(matchingProduct.price*eachData.quantity)}</td>
-        </tr>
+        <td>${matchingProduct.title}</td>
+        <td>${Intl.NumberFormat().format(eachData.quantity)}</td>
+        <td>Rp ${Intl.NumberFormat().format(matchingProduct.price)}</td>
+        <td>Rp ${Intl.NumberFormat().format(matchingProduct.price*eachData.quantity)}</td>
         `
     }
 
