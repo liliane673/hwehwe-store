@@ -36,74 +36,38 @@ import {addToCart} from "./cart.js"
 
 //     renderCard.innerHTML='';
 
-//     for(let i=0; i<allElectronicsData.length; i++){
-//         renderCard.innerHTML+=
-//         // `<img src="${allElectronicsData[i].image}"></img>`
-//         `
-//         <div class="card">
-//             <div class="image-container">
-//                 <img src="${allElectronicsData[i].image}" class="image">
-//             </div>
-//             <div class="text-container">
-//                 <div class ="nama-perbarang">
-//                     ${allElectronicsData[i].title}
-//                 </div>
-//                 <div class="harga-perbarang">
-//                     <span class="rupiah">Rp</span>
-//                     <span class="harga">${allElectronicsData[i].price}</span>
-//                 </div>
-//                 <div class="centered-div">
-//                     <span class="brand-perbarang">
-//                         ${allElectronicsData[i].brand}
-//                     </span>
-//                     <span class="tipe-perbarang">
-//                         ${allElectronicsData[i].type}
-//                     </span>
-//                 </div>
-//             </div>
-//             <button class="keranjang add-to-cart" data-product-id= "${allElectronicsData[i].id}">Tambah Keranjang</button>
-            
-//         </div>
-//         `
-//     }
-// }
-// renderCard();
+    for(let i=0; i<allElectronicsData.length; i++){
+        renderCard.innerHTML+=
+        // `<img src="${allElectronicsData[i].image}"></img>`
+        `
+        <div class="card">
+            <div class="image-container">
+                <img src="${allElectronicsData[i].image}" class="image">
+            </div>
+            <div class="text-container">
+                <div class ="nama-perbarang">
+                    ${allElectronicsData[i].title}
+                </div>
+                <div class="harga-perbarang">
+                    <span class="rupiah">Rp</span>
+                    <span class="harga">${allElectronicsData[i].price}</span>
+                </div>
+                <div class="centered-div">
+                    <span class="brand-perbarang">
+                        ${allElectronicsData[i].brand}
+                    </span>
+                    <span class="tipe-perbarang">
+                        ${allElectronicsData[i].type}
+                    </span>
+                </div>
+            </div>
+            <button class="keranjang">Tambah Keranjang</button>
+        </div>
+        `
+    }
 
-// document.getElementsByClassName('keranjang').addEventListener('click',addToCart);
-
-
-
-// ==================================================
-
-
-export function addCartToArray(productId){
-    let matching;
-    cartArray.forEach(item => {
-        if(item.id===productId){
-            matching=item;
-        }
-    });
-
-    if(matching){
-       matching.quantity+=1;
-    }else{
-        cartArray.push({
-            id:productId,
-            quantity:1,
-        });
-    };
-    console.log(cartArray);
 }
-
-export function updateCart(){
-    let cartQuantity=0;
-    cartArray.forEach(item => {
-        cartQuantity+=item.quantity;
-    })
-    console.log('cartQuantity',cartQuantity)
-}
-
-
+renderCard();
 
 
 
