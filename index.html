@@ -201,6 +201,8 @@
             hasil[allElectronicsData[i].id].push(allElectronicsData[i].brand);
             hasil[allElectronicsData[i].id].push(allElectronicsData[i].type);
             let hasilPemisahanTitle = getWordsFromSentence(allElectronicsData[i].title);
+            
+            // console.log('hasilPemisahanTitle', hasilPemisahanTitle)
             for (let j = 0; j < hasilPemisahanTitle.length; j++) {
               hasil[allElectronicsData[i].id].push(hasilPemisahanTitle[j]);
             }
@@ -208,12 +210,32 @@
           return hasil;
         }
 
-        function hasilSearch(input) {
+        // punya rafif//
+        // function hasilSearch(input) {
+        //   let data = dekonstruksiData(allElectronicsData);
+        //   let hasilFilterSearch = [];
+        //   for (let key in data) {
+        //     for (let i = 0; i < data[key].length; i++) {
+        //       if (input.toLowerCase() == data[key][i].toLowerCase()) {
+        //         // console.log(input, data[key][i])
+        //         for (let j = 0; j < allElectronicsData.length; j++) {
+        //           if (allElectronicsData[j].id == key) {
+        //             hasilFilterSearch.push(allElectronicsData[j]);
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        //   return hasilFilterSearch;
+        // }
+
+         function hasilSearch(input) {
           let data = dekonstruksiData(allElectronicsData);
           let hasilFilterSearch = [];
           for (let key in data) {
             for (let i = 0; i < data[key].length; i++) {
-              if (input == data[key][i]) {
+              if (data[key][i].toLowerCase().includes(input)) {
+                console.log(input, data[key][i])
                 for (let j = 0; j < allElectronicsData.length; j++) {
                   if (allElectronicsData[j].id == key) {
                     hasilFilterSearch.push(allElectronicsData[j]);
@@ -231,6 +253,8 @@
           if(input){
             let dataHasilSearch = hasilSearch(input);
             showCards(dataHasilSearch);
+          } else{
+            alert("Mohon input kata kunci yang ingin dicari!");
           }
         });
 
