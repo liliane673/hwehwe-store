@@ -91,23 +91,9 @@
         console.log(data);
         let allElectronicsData=data 
 
-        showCards(allElectronicsData)
-        updateCart();
-
-        let cartArray=[];
-
-        document.querySelectorAll('.button-cart').forEach(event => {
-            event.addEventListener('click',() => {
-                let productId= Number(event.dataset.productId);
-                console.log(productId, "iniii");
-
-                addToCart(productId);
-            } )
-        });
-
-
-
-
+        showCards(allElectronicsData);
+        console.log('>>> show card disini')
+        
         //Ngasih liat kategori yang dipiilih
         let filteredElectronicsData = [];
         let iskategoriClicked = `false`;
@@ -145,11 +131,32 @@
 
             if (typeKategori[chosenKategori] === undefined) {
               showCards(allElectronicsData);
+              updateCart()
             } else {
               showCards(filteredElectronicsData);
+              updateCart()
             }
+            
+            clickButtonAddToCart();
           });
         }
+
+        updateCart();
+
+        let cartArray=[];
+        
+        function clickButtonAddToCart(){
+          document.querySelectorAll('.button-cart').forEach(event => {
+              event.addEventListener('click',() => {
+                  let productId= Number(event.dataset.productId);
+                  console.log(productId, "iniii");
+  
+                  addToCart(productId);
+              } )
+          });
+        }
+        clickButtonAddToCart();
+
 
         //Sticky Header
         window.onscroll = function () {
@@ -166,86 +173,49 @@
           }
         }
 
-        // let keranjangButton = document.getElementsByClassName(`keranjang-button`)
-        // for(let i = 0; i < keranjangButton.length; i++){
-        //     keranjangButton[i].addEventListener("mousedown",() =>{
-        //         keranjangButton[i].style = "background-color: #ffc56e"
-        //     })
-        //     keranjangButton[i].addEventListener("mouseup",() =>{
-        //         keranjangButton[i].style = "background-color: #f27c05"
-        //     })
-        //     keranjangButton[i].addEventListener('mouseleave', () => {
-        //         if (!keranjangButton[i].matches(':hover')) {
-        //             keranjangButton[i].style.backgroundColor = '#f27c05';
-        //         }
-        //     });
-        // }
-
-        //SEARCH FUNCTION
-        function getWordsFromSentence(title) {
-          let hasilWords = [];
-          let temp = "";
-          for (let i = 0; i <= title.length; i++) {
-            if (title[i] == " " || title[i] === undefined) {
-              hasilWords.push(temp);
-              temp = "";
-            } else temp += title[i];
-          }
-          return hasilWords;
-        }
-
         function dekonstruksiData(allElectronicsData) {
           let hasil = {};
           for (let i = 0; i < allElectronicsData.length; i++) {
             hasil[allElectronicsData[i].id] = [];
-            hasil[allElectronicsData[i].id].push(allElectronicsData[i].brand);
-            hasil[allElectronicsData[i].id].push(allElectronicsData[i].type);
-            let hasilPemisahanTitle = getWordsFromSentence(allElectronicsData[i].title);
+            let kumpulanKata='';
+
+            kumpulanKata+=allElectronicsData[i].brand;
+            kumpulanKata+=allElectronicsData[i].type;
+            kumpulanKata+=allElectronicsData[i].title;
+            hasil[allElectronicsData[i].id].push(kumpulanKata);
+
+
+            // let hasilPemisahanTitle = getWordsFromSentence(allElectronicsData[i].title);
             
-            // console.log('hasilPemisahanTitle', hasilPemisahanTitle)
-            for (let j = 0; j < hasilPemisahanTitle.length; j++) {
-              hasil[allElectronicsData[i].id].push(hasilPemisahanTitle[j]);
-            }
+            // // console.log('hasilPemisahanTitle', hasilPemisahanTitle)
+            // for (let j = 0; j < hasilPemisahanTitle.length; j++) {
+            //   hasil[allElectronicsData[i].id].push(hasilPemisahanTitle[j]);
+            // }
           }
           return hasil;
         }
 
-        // punya rafif//
-        // function hasilSearch(input) {
-        //   let data = dekonstruksiData(allElectronicsData);
-        //   let hasilFilterSearch = [];
-        //   for (let key in data) {
-        //     for (let i = 0; i < data[key].length; i++) {
-        //       if (input.toLowerCase() == data[key][i].toLowerCase()) {
-        //         // console.log(input, data[key][i])
-        //         for (let j = 0; j < allElectronicsData.length; j++) {
-        //           if (allElectronicsData[j].id == key) {
-        //             hasilFilterSearch.push(allElectronicsData[j]);
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        //   return hasilFilterSearch;
-        // }
+          function hasilSearch(input) {
+            let data = dekonstruksiData(allElectronicsData);
+            console.log('data', data);
 
-         function hasilSearch(input) {
-          let data = dekonstruksiData(allElectronicsData);
-          let hasilFilterSearch = [];
-          for (let key in data) {
-            for (let i = 0; i < data[key].length; i++) {
-              if (data[key][i].toLowerCase().includes(input)) {
-                console.log(input, data[key][i])
-                for (let j = 0; j < allElectronicsData.length; j++) {
-                  if (allElectronicsData[j].id == key) {
-                    hasilFilterSearch.push(allElectronicsData[j]);
+            let hasilFilterSearch = [];
+            for (let key in data) {
+
+              for (let i = 0; i < data[key].length; i++) {
+
+                if (data[key][i].toLowerCase().includes(input)) {
+                  console.log('>>>hasil input yang ini,', input, typeof input, data[key][i], key)
+
+                    if(allElectronicsData[Number(key-1)]){
+                      hasilFilterSearch.push(allElectronicsData[Number(key-1)]);
                   }
                 }
               }
             }
+            return hasilFilterSearch;
           }
-          return hasilFilterSearch;
-        }
+          
 
         let searchButton = document.getElementsByClassName("search-button")[0];
         searchButton.addEventListener("click", () => {
@@ -253,10 +223,13 @@
           if(input){
             let dataHasilSearch = hasilSearch(input);
             showCards(dataHasilSearch);
+            updateCart();
+            clickButtonAddToCart();
           } else{
             alert("Mohon input kata kunci yang ingin dicari!");
           }
         });
+      
 
     </script>
 </body>
